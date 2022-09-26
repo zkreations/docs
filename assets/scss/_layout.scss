@@ -35,6 +35,15 @@
   z-index: 50;
   width: 100%;
 
+  &-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    @include media(min, m) {
+      font-size: 1.125rem;
+    }
+  }
+
   &-wrapper {
     display: flex;
     align-items: center;
@@ -56,10 +65,21 @@
     display: flex;
     margin-left: auto;
     column-gap: .75rem;
+    position: relative;
 
     >* {
       flex: none;
     }
+  }
+}
+
+.toggle {
+  &-version {
+    border: 1px solid var(--color-border);
+    padding: 0.125rem 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    color: var(--color-text);
   }
 }
 

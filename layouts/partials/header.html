@@ -3,7 +3,7 @@
     <button class="header-toggle" id="toggle-menu" aria-label="toggle navigation">
       {{ partial "svg" (dict "icon" "bars") }}
     </button>
-    <div class="header-logo fw-500 fs-5">
+    <div class="header-logo fw-500">
       <a class="has-icon i-md" href="{{ $.Site.BaseURL }}{{- with .Section -}}{{ . }}{{ end }}">
         {{ partial "svg" (dict "icon" $.Site.Params.main_icon) }}
         {{- .Site.Title | title -}}
@@ -19,7 +19,24 @@
       <a class="toc-toggle" href="#doc" aria-label="toggle toc">
         {{ partial "svg" (dict "icon" "bars-sort") }}
       </a>
+      {{- with .Section -}}
+        <button class="toggle-version" id="toggle-version" aria-label="Version">
+          {{ . }}
+        </button>
+      {{- end -}}
     </div>
+
+    {{- with .Section -}}
+      <div class="dropdown" id="docs-versions">
+        <div class="list fw-500">
+          {{ range $.Site.Sections }}
+            <a class="list-link" href="{{ .Permalink }}">{{ .Section }}</a>
+          {{ end }}
+          <a class="list-link" href="{{ $.Site.BaseURL }}">{{ i18n "versions" }}</a>
+        </div>
+      </div>
+    {{- end -}}
+
     <div class="dropdown" id="docs-language">
       <div class="list fw-500">
         {{ range $.Site.Home.Translations }}

@@ -137,6 +137,9 @@
   // Todos los botones que requieren un clic "fuera" están aquí (help)
 
   const outsideClick = (button, target) => {
+    if (!button || !target){
+      return
+    }
 
     function outside(event) {
       if (!target.contains(event.target) && !button.contains(event.target)) {
@@ -169,5 +172,10 @@
 
   outsideClick(langToggle, langDropdown)
   
+  const versionToggle = document.getElementById("toggle-version");
+  const versionDropdown = document.getElementById("docs-versions");
+
+  outsideClick(versionToggle, versionDropdown)
+
   document.body.classList.remove("preload")
 })(this);
