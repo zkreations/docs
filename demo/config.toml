@@ -1,0 +1,39 @@
+title = 'Docs'
+theme = 'docs'
+baseURL = 'https://example.com/'
+
+languageCode = 'es'
+defaultContentLanguage = 'es'
+
+copyright = "Created by zkreations"
+canonifyURLs = true
+enableRobotsTXT = true
+enableGitInfo = false
+
+enableInlineShortcodes = true
+disableKinds = ["taxonomy","taxonomyTerm","term","RSS"]
+
+[languages]
+  [languages.es]
+    languageName = "Español"
+    weight = 1
+
+  [languages.en]
+    languageName = "English"
+    weight = 2
+
+# Shortcodes HTML
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+
+  [markup.highlight]
+    noClasses = false
+
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+
+[params]
+  github_repo_edit = "https://github.com/zkreations/docs/blob/master/demo/content"
+  date_format = "January 2, 2006"
