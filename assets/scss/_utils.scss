@@ -1,0 +1,88 @@
+// utilidades
+
+.has-icon {
+  display: flex;
+  align-items: center;
+  column-gap: var(--btn-gap, .75rem);
+}
+
+.italic {
+  font-style: italic;
+}
+
+.normal {
+  font-style: normal;
+}
+
+.fw-100 {
+  font-weight: 100;
+}
+
+.fw-200 {
+  font-weight: 200;
+}
+
+.fw-300 {
+  font-weight: 300;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.fw-800 {
+  font-weight: 800;
+}
+
+.fw-900 {
+  font-weight: 900;
+}
+
+.fs-1 {
+  font-size: 2.5rem;
+}
+
+.fs-2 {
+  font-size: 2rem;
+}
+
+.fs-3 {
+  font-size: 1.5rem;
+}
+
+.fs-4 {
+  font-size: 1.25rem;
+}
+
+.fs-5 {
+  font-size: 1.125rem;
+}
+
+.fs-6 {
+  font-size: 1rem;
+}
+
+.fs-7 {
+  font-size: 0.875rem;
+}
+
+.fs-8 {
+  font-size: 0.75rem;
+}
+
+.ox-auto {
+  overflow-x: auto;
+}
+// fin utilidades

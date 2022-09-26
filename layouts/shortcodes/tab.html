@@ -1,0 +1,14 @@
+{{ if .Parent }}
+
+  {{ $group := "tabs" }}
+
+  {{ $id := delimit (shuffle (slice "a" "b" "c" "d" "e" "f")) "" }}
+  {{ $lang := .Get 0 | default "html" }}
+
+  {{ if not (.Parent.Scratch.Get $group) }}
+    {{ .Parent.Scratch.Set $group slice }}
+  {{ end }}
+
+  {{ .Parent.Scratch.Add $group (dict "Lang" $lang "Content" .Inner "ID" $id ) }}
+
+{{ end}}

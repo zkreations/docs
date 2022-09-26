@@ -1,0 +1,32 @@
+[system]
+other = "System"
+
+[light]
+other = "Light"
+
+[dark]
+other = "Dark"
+
+[contents]
+other = "Contents"
+
+[quick_search]
+other = "Quick search"
+
+[edit_on_github]
+other = "Edit on Github"
+
+[edited]
+other = "Edited"
+
+[no_results]
+other = "No results"
+
+[no_results_text]
+other = "It seems that we have not documented that or it does not exist. Should we add it? help us document it on Github"
+
+[copy]
+other = "Copy"
+
+[copied]
+other = "Copied"

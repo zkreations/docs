@@ -1,0 +1,41 @@
+.article {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  grid-area: doc;
+
+  @include media(min, l) {
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+
+  &-header {
+    border-bottom: 1px solid var(--color-border);
+    align-items: center;
+    display: flex;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+
+    @include media(min, m) {
+      padding-bottom: 1.75rem;
+      margin-bottom: 1.75rem;
+    }
+  }
+
+  &-title {
+    font-size: 2rem;
+
+    @include media(min, m) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &-edit {
+    flex: none;
+    padding-left: 1rem;
+    margin-left: auto;
+  }
+
+  &-footer {
+    border-top: 1px solid var(--color-border);
+  }
+}

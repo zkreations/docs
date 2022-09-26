@@ -1,0 +1,16 @@
+{{- $href := .Get "href" | default "#undefined" -}}
+{{- $title := .Get "title" | default "undefined" -}}
+{{- $icon := .Get "icon" | default ( cond (hasPrefix $href "http") "arrow-up-right" "chain" ) -}}
+{{- $name := .Get "name" -}}
+
+<a class="pagelink" href="{{ relref . $href }}"{{ if hasPrefix  $href  "http" }} target="_blank" rel="noreferrer nofollow noopener"{{ end }}>
+  <div class="pagelink-icon i-md">
+    {{- partial "svg" (dict "icon" $icon) -}}
+  </div>
+  <div class="pagelink-content">
+    <div class="pagelink-title fw-500">{{ $title }}</div>
+    {{- with $name -}}
+      <span class="pagelink-meta">{{ . }}</span>
+    {{- end -}}
+  </div>
+</a>

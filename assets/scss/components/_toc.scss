@@ -1,0 +1,37 @@
+.toc {
+  grid-area: toc;
+  @include media(max,l) {
+    &:not(.is-active) {
+      display: none;
+    }
+    order: -1;
+  }
+  &-toggle {
+    @include media(min,l){
+      display: none;
+    }
+  }
+  &-content {
+    padding-top: 2rem;
+    @include media(min,l){
+      border-left: 1px solid var(--color-border);
+      padding-left: 2rem;
+      padding-top: 3rem;
+      position: sticky;
+    }
+  }
+  nav {
+    > ul {
+      padding-top: 1rem;
+      a:hover {
+        color: var(--primary);
+      }
+      ul {
+        margin: 1rem;
+      }
+      li + li {
+        margin-top: .5rem;
+      }
+    }
+  }
+}

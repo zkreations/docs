@@ -1,0 +1,14 @@
+{{- $date := .Lastmod -}}
+
+{{- if .GitInfo }}
+  {{- $date := .GitInfo.AuthorDate  -}}
+{{- end }}
+
+{{- $lastmod := $date.Format .Site.Params.date_format -}}
+
+<footer class="footer">
+  <div class="footer-wrapper">
+    <div class="footer-item">{{ i18n "edited" }}: {{ $lastmod }}</div>
+    <div class="footer-item">{{ .Site.Copyright }}</div>
+  </div>
+</footer>

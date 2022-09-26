@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="header-wrapper">
+    <button class="header-toggle" id="toggle-menu" aria-label="toggle navigation">
+      {{ partial "svg" (dict "icon" "bars") }}
+    </button>
+    <div class="header-logo fw-500 fs-5">
+      <a class="has-icon i-md" href="/{{- with .Section -}}{{ . }}{{ end }}/">
+        {{ partial "svg" (dict "icon" $.FirstSection.Params.icon) }}
+        {{- .Site.Title | title -}}.docs
+      </a>
+    </div>
+    <div class="header-right">
+      <button class="theme-toggle" id="toggle-mode" aria-label="Light mode">
+        {{ partial "svg" (dict "icon" "sun") }}
+      </button>
+      <button class="lang-toggle" id="toggle-lang" aria-label="Language">
+        {{ partial "svg" (dict "icon" "language") }}
+      </button>
+      <a class="toc-toggle" href="#doc" aria-label="toggle toc">
+        {{ partial "svg" (dict "icon" "bars-sort") }}
+      </a>
+    </div>
+    <div class="dropdown" id="docs-language">
+      <div class="list fw-500">
+        {{ range $.Site.Home.Translations }}
+        <a class="list-link" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+        {{ end }}
+      </div>
+    </div>
+    <div class="dropdown" id="docs-mode">
+      <div class="list fw-500 theme-handle">
+        <button class="list-link has-icon" data-theme="system">
+          {{ partial "svg" (dict "icon" "desktop") }}
+          {{ i18n "system" }}
+        </button>
+        <button class="list-link has-icon" data-theme="light">
+          {{ partial "svg" (dict "icon" "sun") }}
+          {{ i18n "light" }}
+        </button>
+        <button class="list-link has-icon" data-theme="dark">
+          {{ partial "svg" (dict "icon" "moon") }}
+          {{ i18n "dark" }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

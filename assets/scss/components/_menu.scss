@@ -1,0 +1,60 @@
+.menu {
+  $this: &;
+  &-list {
+    > * + * {
+      margin-top: 1rem;
+    }
+    #{$this}-list {
+      box-shadow: 2px 0 0 0 var(--color-border) inset;
+      margin: 1.5rem 0;
+      margin-left: .5rem;
+
+      > *+* {
+        margin-top: 0.75rem;
+      }
+
+      #{$this}-item {
+        padding-left: 1.5rem;
+
+        #{$this}-link {
+          &.is-active {
+            --link-color:
+            var(--color-title);
+            font-weight: 500;
+            &::before {
+              content: "";
+              width: 2px;
+              height: 100%;
+              background-color: var(--color-title);
+              position: absolute;
+              left: 0;
+              top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  &-link {
+    display: flex;
+    align-items: center;
+    color: var(--link-color, inherit);
+    &:hover {
+      color: var(--primary)
+    }
+    & + #{$this}-list {
+      color: var(--color-text);
+      font-weight: 400;
+    }
+  }
+  &-item {
+    position: relative;
+    &:not(.is-parent) > #{$this}-list {
+      display: none;
+    }
+    &.is-parent > #{$this}-link {
+      --link-color: var(--primary)
+    }
+  }
+}
+

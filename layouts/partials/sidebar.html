@@ -1,0 +1,30 @@
+<div class="aside-tree scrollable">
+  <div class="aside-menu fw-500">
+    {{- with .Site.GetPage .Section -}}
+      {{ template "tree-list" (dict "Section" . "CurrentPage" $) }}
+    {{ end }}
+  </div>
+</div>
+
+{{ define "tree-list" }}
+  {{ $currentNode := .CurrentPage }}
+  <ul class="menu-list">
+    {{ range (where .Section.Pages "Params.hidden" "ne" true) }}
+      <li class="menu-item{{if or (eq $currentNode .Page) (.IsAncestor $currentNode )}} is-parent{{end}}">
+        {{ if .IsSection }}
+          {{ template "tree-link" (dict "Page" . "CurrentPage" $.CurrentPage ) }}
+          {{ template "tree-list" (dict "Section" . "CurrentPage" $.CurrentPage ) }}
+        {{ else if and .IsPage .Content }}
+          {{ template "tree-link" (dict "Page" . "CurrentPage" $.CurrentPage ) }}
+        {{ end }}
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}
+
+{{ define "tree-link" }}
+  <a href="{{ .Page.Permalink }}" class="menu-link fs-6{{ if (eq .CurrentPage .Page) }} is-active{{ end }}{{ with .Page.Params.icon }} has-icon{{ end }}">
+    {{ partial "svg" (dict "icon" .Page.Params.icon ) }}
+    {{- partial "title" .Page -}}
+  </a>
+{{ end }}

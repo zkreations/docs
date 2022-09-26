@@ -1,0 +1,283 @@
+// Core.css | licensed MIT (https://github.com/zkreations/wjs/blob/master/scss/generic/_core.scss)
+*,
+::before,
+::after { box-sizing: border-box; }
+
+// 1. Altura de línea accesible
+// 2. Evita ajustes de tamaño de fuente después del cambio de orientación en iOS.
+// 3. Mejora de renderizado de textos
+
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Alturas basadas en porcentajes en la aplicación
+// https://joshwcomeau.com/css/custom-css-reset/
+
+html,
+body {
+  height: 100%;
+}
+
+// Elimina margen predeterminado
+// https://joshwcomeau.com/css/custom-css-reset/
+* {
+  margin: 0;
+}
+
+// Elimina el relleno innecesario de forma predeterminada.
+
+fieldset,
+legend {
+  padding: 0;
+}
+
+// Remuve el borde innecesario por defecto.
+
+iframe,
+fieldset {
+  border-width: 0;
+}
+
+// Tipografía
+// 1. Separadores sólidos y delgados
+// 2. Elimina `color: gray` de Firefox
+// 3. Elimina `height: 1px` y `overflow: hidden`
+// https://github.com/jensimmons/cssremedy/issues/27
+
+hr {
+  border-style: solid;
+  border-width: 1px 0 0;
+  color: inherit;
+  height: 0;
+  overflow: visible;
+}
+
+// Remueve los estilos de enlaces.
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// 1. Estilos de encabezado y parrafos se heredan del texto base.
+// 2. Evite los desbordamientos de texto
+// https://joshwcomeau.com/css/custom-css-reset/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  overflow-wrap: break-word;
+}
+
+p {
+  overflow-wrap: break-word;
+}
+
+// Estilos de la etiqueta address igual que el texto base
+address {
+  font-style: normal;
+  line-height: inherit;
+}
+
+// Decoración de texto correcta en Chrome, Edge y Safari.
+
+abbr[title] {
+  text-decoration: underline dotted;
+}
+
+// Grosor de fuente correcta en Chrome, Edge y Safari.
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+// Agregua el tamaño de fuente correcto en todos los navegadores.
+
+small { font-size: 80%; }
+
+// Evite que los elementos `sub` y` sup` afecten la altura de la
+// línea en todos los navegadores.
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub { bottom: -0.25em; }
+
+sup { top: -0.5em; }
+
+// Formulario
+// Remueve estilos por defecto para todos los navegadores
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  padding: 0;
+  border-width: 0;
+  font-size: 100%;
+  font-family: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+// Campo de texto limitado a vertical para evitar el desbordamiento horizontal
+
+textarea { resize: vertical; }
+
+// Elimina la herencia de transformación de texto en Edge y Firefox.
+
+button,
+select {
+  text-transform: none;
+}
+
+// 1. Corrige la imposibilidad de diseñar tipos en los que se puede
+// hacer clic en iOS y Safari.
+// 2. Remueve los estilos de botón por defecto
+// 3. Agregamos el cursor tipo pointer solo si el atributo `:disabled`
+// no se ha establecido
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  background-color: transparent;
+  display: inline-block;
+  vertical-align: middle;
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+// Agrega la alineación vertical correcta en Chrome, Firefox y Opera.
+
+progress {
+  vertical-align: baseline;
+}
+
+// 1. Corrige la apariencia extraña en Chrome y Safari.
+// 2. Corrige el estilo de contorno en Safari.
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+// Quite el relleno interior en Chrome y Safari en macOS.
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+// Corrige el estilo del cursor de los botones de incremento y
+// decremento en Chrome.
+
+::-webkit-inner-spin-button {
+  height: auto;
+}
+
+// 1. Corrige la incapacidad de diseñar tipos en los que se
+// puede hacer clic en iOS y Safari.
+// 2. Las propiedades de la fuente se heredan en Safari.
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+// Interactivo
+// Agregamos el modelo de caja correcto en todos los navegadores.
+
+summary { display: list-item; }
+
+// Ocultamos siempre los elementos con el atributo HTML `hidden`.
+
+[hidden] { display: none; }
+
+// Listas
+// Eliminamos los estilos de las listas en todos los navegadores.
+
+ol,
+ul,
+dl,
+dd {
+  list-style: none;
+  padding: 0;
+}
+
+// Tablas
+// 1. Por defecto sin bordes
+// 2. Evitamos los bordes dobles
+// 3. La alineación del texto se hereda
+
+table {
+  border-collapse: collapse;
+  max-width: 100%;
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-width: 0;
+  text-align: inherit;
+}
+
+// Elementos incrustados
+// Mantiene la relación de aspecto
+// https://github.com/jensimmons/cssremedy/issues/14
+
+img,
+svg,
+video,
+canvas {
+  height: auto;
+}
+
+// 1. Remueve el contenedor de la imagen, mientras mantiene el contenido
+// 2. Los elementos de origen no muestran nada, los ocultamos por completo
+// https://github.com/jensimmons/cssremedy/issues/45
+
+picture { display: contents; }
+source { display: none; }
+
+// 1. Convierte en bloque como mayormente se quiere
+// 2. Responsive por defecto
+// https://github.com/jensimmons/cssremedy/issues/14
+
+img,
+svg,
+video,
+canvas,
+iframe,
+embed,
+object {
+  display: block;
+  max-width: 100%;
+}
+
+// Responsive por defecto para Audio y video
+// https://github.com/jensimmons/cssremedy
+
+audio,
+video { width: 100%; }
+

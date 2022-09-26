@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Lang }}">
+  <head>
+    {{ partial "head" . }}
+    {{ partial "styles" . }}
+    {{ partial "scripts" . }}
+  </head>
+  <body class="fs-7 fw-400 preload">
+    <div class="template">
+      <header class="header">
+        {{ partial "header" . }}
+      </header>
+      {{ block  "main" . }}
+      <div class="doc container" id="doc">
+        <aside class="aside" id="docs-sidebar">
+          {{ partial "sidebar" . }}
+        </aside>
+        <main class="main main-index">
+          <article class="article fs-6">
+            {{ partial "article" . }}
+            {{ partial "footer" . }}
+          </article>
+          <aside class="toc">
+            {{ partial "toc" . }}
+          </aside>
+        </main>
+      </div>
+      {{ end }}
+    </div>
+  </body>
+</html>

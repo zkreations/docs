@@ -1,0 +1,30 @@
+.error {
+  margin-top: var(--header-height);
+  text-align: center;
+  padding: 2rem;
+
+  &-container {
+    max-width: 600px;
+    padding-top: 2.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &-name {
+    font-size: 2rem;
+    color: var(--color-title);
+    font-weight: 700;
+  }
+
+  &-description {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    color: var(--color-text);
+  }
+
+  &-emoji {
+    font-size: 2rem;
+    opacity: .25;
+  }
+}
