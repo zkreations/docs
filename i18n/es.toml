@@ -22,6 +22,9 @@ other = "Editado"
 [no_results]
 other = "Sin resultados"
 
+[no_items]
+other = "Sin elementos"
+
 [no_results_text]
 other = "Parece que no hemos documentado eso o no existe. ¿Deberiamos agregarlo? ayudanos a documentarlo en Github"
 
@@ -30,3 +33,9 @@ other = "Copiar"
 
 [copied]
 other = "Copiado"
+
+[versions]
+other = "Versiones"
+
+[main_section_text]
+other = "Una lista de todos los documentos alojados para todas las versiones disponibles"

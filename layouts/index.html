@@ -2,13 +2,17 @@
 <main class="main-section">
   <div class="container">
     <div class="section-info">
-      <h1 class="section-title">Versiones</h1>
-      <p class="section-description">Una lista de todos los documentos alojados para todas las versiones de {{ .Site.Title | title }}.</p>
+      <h1 class="section-title">{{ i18n "versions" }}</h1>
+      <p class="section-description">{{ i18n "main_section_text" }}.</p>
     </div>
     <div class="section-content">
       <ul class="section-list">
-        {{ range .Site.Sections }}
-          <li><a href="{{ .Permalink }}">{{ .Section }}</a></li>
+        {{ if (eq (.Site.Sections | len) 0) }}
+            <li><a href="#no-item">{{ i18n "no_items" }}</a></li>
+        {{ else }}
+          {{ range .Site.Sections }}
+            <li><a href="{{ .Permalink }}">{{ .Section }}</a></li>
+          {{ end }}
         {{ end }}
       </ul>
     </div>
