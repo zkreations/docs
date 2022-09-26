@@ -70,6 +70,12 @@
     border-left: 1px solid var(--color-border);
   }
 
+  &-section {
+    margin-top: var(--header-height);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
   &-index {
     display: grid;
     margin-top: var(--header-height);
@@ -82,6 +88,44 @@
       grid-template-areas: "doc toc";
       grid-template-columns: minmax(0, 1fr) 20%;
     }
+  }
+}
+
+.section {
+
+  &-content {
+    font-size: 1.125rem;
+    margin-top: 2rem;
+  }
+
+  &-list {
+    border-radius: .5rem;
+    border: 1px solid var(--color-border);
+    max-width: 300px;
+
+    a {
+      padding: .75rem 1rem;
+      display: block;
+    }
+
+    >*+* {
+      border-top: 1px solid var(--color-border);
+    }
+  }
+
+  &-info {
+    max-width: 600px;
+  }
+
+  &-title {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  &-description {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-top: .75rem;
   }
 }
 
