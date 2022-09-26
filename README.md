@@ -3,6 +3,12 @@
 Realicé este proyecto con Hugo para documentar fácilmente mis propios proyectos, pero pense que estaría genial compartirlo, asi te ahorrarás el tiempo que me tomó aprender todo lo que finalmente, resultó en esta documentación. ¡Ojala realices muchos trabajos!
 
 
+## Requisitos
+
+- Git
+- Hugo version 0.100.0 o superior
+- Hugo extended (obligatorio para compilar assets)
+
 ## Instalar
 
 
