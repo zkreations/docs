@@ -31,7 +31,7 @@ Para que puedas comprender esto mejor, utiliza el ejemplo de estructura inicial 
 cp -R themes/docs/demo/content .
 ```
 
-Ahora solo resta iniciar el servidor local para que puedas apreciar la documentación:
+También te recomiendo copiar el archivo **demo/config.toml** y reemplazar la información con tus datos. Ahora solo resta iniciar el servidor local para que puedas apreciar la documentación:
 
 ```text
 hugo serve
