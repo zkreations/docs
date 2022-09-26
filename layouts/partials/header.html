@@ -4,7 +4,7 @@
       {{ partial "svg" (dict "icon" "bars") }}
     </button>
     <div class="header-logo fw-500 fs-5">
-      <a class="has-icon i-md" href="/{{- with .Section -}}{{ . }}{{ end }}">
+      <a class="has-icon i-md" href="{{ $.Site.BaseURL }}{{- with .Section -}}{{ . }}{{ end }}">
         {{ partial "svg" (dict "icon" $.Site.Params.main_icon) }}
         {{- .Site.Title | title -}}
       </a>
