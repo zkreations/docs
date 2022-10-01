@@ -1,9 +1,13 @@
 {{- $href := .Get "href" | default "#undefined" -}}
+{{ if not (hasPrefix  $href  "http") }}
+  {{- $href := relref . $href -}}
+{{ end }}
+
 {{- $title := .Get "title" | default "undefined" -}}
 {{- $icon := .Get "icon" | default ( cond (hasPrefix $href "http") "arrow-up-right" "chain" ) -}}
 {{- $name := .Get "name" -}}
 
-<a class="pagelink" href="{{ relref . $href }}"{{ if hasPrefix  $href  "http" }} target="_blank" rel="noreferrer nofollow noopener"{{ end }}>
+<a class="pagelink" href="{{ $href }}"{{ if hasPrefix  $href  "http" }} target="_blank" rel="noreferrer nofollow noopener"{{ end }}>
   <div class="pagelink-icon i-md">
     {{- partial "svg" (dict "icon" $icon) -}}
   </div>
