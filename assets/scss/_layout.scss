@@ -2,14 +2,16 @@
   display: grid;
   flex: 1 1 0%;
   width: 100%;
-  grid-template-areas:
-    "aside-tree"
-    "main-doc";
+  grid-template-areas:"main-doc";
   grid-template-columns: 100%;
 
   @include media(min, l) {
     grid-template-areas: "aside-tree main-doc";
     grid-template-columns: 17% minmax(0, 1fr);
+  }
+
+  @include media(max, l) {
+    align-items: flex-start;
   }
 }
 
