@@ -1,8 +1,10 @@
 <header class="article-header">
   <h1 class="article-title fw-500">{{- partial "title" .Page -}}</h1>
-  <a class="article-edit i-md" href="{{ .Site.Params.github_repo_edit }}/{{ .Page.File.Path | replaceRE `\\` "/" }}" data-tts="down-right" aria-label="{{ i18n "edit_on_github" }}">
-    {{ partial "svg" (dict "icon" "pencil") }}
-  </a>
+  {{- if .Site.Params.github_repo_edit -}}
+    <a class="article-edit i-md" href="{{ $.Site.Params.github_repo_edit }}/{{ .Page.File.Path | replaceRE `\\` "/" }}" data-tts="down-right" aria-label="{{ i18n "edit_on_github" }}">
+      {{ partial "svg" (dict "icon" "pencil") }}
+    </a>
+  {{- end -}}
 </header>
 <div class="article-body markdown">
   {{- .Content -}}

@@ -10,15 +10,22 @@
       </a>
     </div>
     <div class="header-right">
+      <!-- Dark mode toggle -->
       <button class="theme-toggle" id="toggle-mode" aria-label="Light mode">
         {{ partial "svg" (dict "icon" "sun") }}
       </button>
-      <button class="lang-toggle" id="toggle-lang" aria-label="Language">
-        {{ partial "svg" (dict "icon" "language") }}
-      </button>
+
+      <!-- Language toggle -->
+      {{- if .Site.IsMultiLingual -}}
+        <button class="lang-toggle" id="toggle-lang" aria-label="Language">
+          {{ partial "svg" (dict "icon" "language") }}
+        </button>
+      {{- end -}}
+
       <a class="toc-toggle" href="#doc" aria-label="toggle toc">
         {{ partial "svg" (dict "icon" "bars-sort") }}
       </a>
+
       {{- with .Section -}}
         <button class="toggle-version" id="toggle-version" aria-label="Version">
           {{ . }}
@@ -36,14 +43,17 @@
         </div>
       </div>
     {{- end -}}
-
-    <div class="dropdown" id="docs-language">
-      <div class="list fw-500">
-        {{ range $.Site.Home.Translations }}
-        <a class="list-link" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
-        {{ end }}
+    
+    {{- if .Site.IsMultiLingual -}}
+      <div class="dropdown" id="docs-language">
+        <div class="list fw-500">
+          {{ range $.Site.Home.Translations }}
+            <a class="list-link" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+          {{ end }}
+        </div>
       </div>
-    </div>
+    {{- end -}}
+    
     <div class="dropdown" id="docs-mode">
       <div class="list fw-500 theme-handle">
         <button class="list-link has-icon" data-theme="system">
