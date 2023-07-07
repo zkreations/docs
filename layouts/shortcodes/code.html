@@ -16,13 +16,6 @@
         {{- range first 1 ( where $hasTabs ".Lang" "==" "css" ) -}}
           <style> {{- .Content | safeCSS -}} </style>
         {{- end -}}
-        {{- range first 1 ( where $hasTabs ".Lang" "==" "js" ) -}}
-          <script>
-            window.addEventListener('DOMContentLoaded', (event) => {
-              {{-  .Content | safeJS -}}
-            });
-          </script>
-        {{- end -}}
         {{- range first 1 ( where $hasTabs ".Lang" "==" "html" ) -}}
           {{-  .Content | safeHTML -}}
         {{- end -}}
