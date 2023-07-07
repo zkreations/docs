@@ -1,4 +1,3 @@
-
 {{- $id := .Get "id" -}}
 {{- $class := .Get "class" -}}
 {{- $lang := .Get "lang" | default "html" -}}
@@ -15,14 +14,12 @@
       {{- if $hasTabs -}}
 
         {{- range first 1 ( where $hasTabs ".Lang" "==" "css" ) -}}
-          <style>
-            {{- .Content | safeCSS -}}
-          </style>
+          <style> {{- .Content | safeCSS -}} </style>
         {{- end -}}
         {{- range first 1 ( where $hasTabs ".Lang" "==" "js" ) -}}
           <script>
-            document.addEventListener('DOMContentLoaded', (event) => {
-              {{- .Content | safeJS -}}
+            window.addEventListener('DOMContentLoaded', (event) => {
+              {{-  .Content | safeJS -}}
             });
           </script>
         {{- end -}}
@@ -44,7 +41,13 @@
     <div class="codetabs">
       {{- range $index, $code := $hasTabs -}}
         <input id="tab-{{ $code.ID }}" type="radio" name="{{ $uniqueId }}"{{ if not $index }} checked="checked"{{ end }}>
-        <label for="tab-{{ $code.ID }}">{{ $code.Lang | upper }}</label>
+        <label for="tab-{{ $code.ID }}">
+          {{- if $code.Title -}}
+            {{- $code.Title -}}
+          {{- else -}}
+            {{- $code.Lang | upper -}}
+          {{- end -}}
+        </label>
         {{ highlight (trim $code.Content "\n\r") (cond (eq $code.Lang "pug") "html" $code.Lang ) "" }} 
       {{- end -}}
     </div>

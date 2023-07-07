@@ -1,14 +1,15 @@
-{{ if .Parent }}
+{{- if .Parent -}}
 
-  {{ $group := "tabs" }}
+  {{- $group := "tabs" -}}
 
-  {{ $id := delimit (shuffle (slice "a" "b" "c" "d" "e" "f")) "" }}
-  {{ $lang := .Get 0 | default "html" }}
+  {{- $id := delimit (shuffle (slice "a" "b" "c" "d" "e" "f")) "" -}}
+  {{- $lang := .Get 0 | default "html" -}}
+  {{- $title := .Get 1 -}}
 
-  {{ if not (.Parent.Scratch.Get $group) }}
+  {{- if not (.Parent.Scratch.Get $group) -}}
     {{ .Parent.Scratch.Set $group slice }}
-  {{ end }}
+  {{- end -}}
 
-  {{ .Parent.Scratch.Add $group (dict "Lang" $lang "Content" .Inner "ID" $id ) }}
+  {{ .Parent.Scratch.Add $group (dict "Lang" $lang "Content" .Inner "ID" $id "Title" $title ) }}
 
-{{ end}}
+{{- end -}}
