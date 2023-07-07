@@ -1,0 +1,92 @@
+
+:root {
+  --color-selection: #{rgba($green-300, .2)};
+  --highlight-selection: #{rgba($green-300, .2)};
+  --highlight-selection-border: #{$green-300};
+  --highlight-bg: #{$black};
+
+  --bg-header: #{$white};
+  --bg-mark: #{$yellow-100};
+  --header-height: 70px;
+
+  --shadow-sm: 0px 1px 2px rgb(0 0 0 / 10%);
+  --shadow-md: 0px 3px 6px rgb(0 0 0 / 10%);
+  --shadow-lg: 0px 5px 10px rgb(0 0 0 / 20%);
+
+  --timing: cubic-bezier(0.7, 0.006, 0.2, 1);
+  --font-primary: "Roboto", Arial, sans-serif;
+  --font-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+
+  // Estilos claros
+  --primary: #{$green-500};
+
+  --color-link: var(--primary);
+
+  --btn-primary: #{$green-100};
+  --btn-primary-hover: #{$green-200};
+
+  --color-title: #{$gray-800};
+  --color-text: #{$gray-600};
+
+  --color-border: #{$gray-200};
+  --color-border-inset: #{$gray-300};
+
+  --bg-main:  #{$white};
+  --bg-inset: #{$gray-100};
+  --bg-tenue: #{rgba($gray-200, .5)};
+
+  --bg-primary: #{$gray-100};
+  --bg-secondary: #{$gray-200};
+
+  --bg-inverse: #{$gray-900};
+  --bg-darken: #{$gray-700};
+
+  --info: #{$blue-600};
+  --info-bg: #{$blue-100};
+
+  --success: #{$green-600};
+  --success-bg: #{$green-100};
+
+  --danger: #{$red-600};
+  --danger-bg: #{$red-100};
+
+  --warning: #{$yellow-600};
+  --warning-bg: #{$yellow-100};
+
+  // Estilos oscuros
+  &.dark {
+    --primary: #{$green-300};
+
+    --btn-primary: #{shade-color($green-300, 80%)};
+    --btn-primary-hover: #{shade-color($green-300, 70%)};
+
+    --color-title: #d6e1e9;
+    --color-text: #9ca3af;
+    
+    --color-border: #2f2f30;
+    --color-border-inset: #2f2f30;
+
+    --bg-main: #121212;
+    --bg-inset: #1c1c1d;
+    --bg-tenue: rgb(0 0 0 / 50%);
+
+    --bg-primary: #232325;
+    --bg-header: #232325;
+
+    --bg-inverse: #0a0a0a;
+    --bg-darken: #3a3d4c;
+
+    --info: hsl(202deg 92% 90%);
+    --info-bg: hsl(201deg 52% 20%);
+  
+    --success: hsl(183deg 89% 90%);
+    --success-bg: hsl(184deg 39% 20%);
+
+    --danger: hsl(6deg 73% 90%);
+    --danger-bg: hsl(6deg 20% 20%);
+  
+    --warning: hsl(39deg 73% 90%);
+    --warning-bg: hsl(38deg 30% 20%);
+
+  }
+}

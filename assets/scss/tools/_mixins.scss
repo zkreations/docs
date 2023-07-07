@@ -1,0 +1,64 @@
+// Generador de utilidades
+// @param {String} $property - CSS property
+// @param {List} $values - List of values
+// @param {Boolean} $responsive (false) - Responsive utilities
+// @return {Mixin}
+@mixin utility($property, $values, $responsive: false) {
+  $utility: if(& !=null, str-replace(#{&}, ".") + "-", "");
+
+  @if type-of($values) !="map" {
+    $values: zip($values, $values);
+  }
+
+  @each $key,
+  $value in $values {
+    $suffix: str-replace(escapeClass($key), "rem");
+
+    // Si utility es "null", no se agrega al selector
+    $class: $utility + $suffix;
+
+    @at-root .#{$class} {
+      #{$property}: $value;
+    }
+  }
+
+  @if $responsive {
+
+    @each $breakpoint,
+    $size in $breakpoints {
+      $prefix: escapeClass($breakpoint + ":");
+
+      @media (min-width: $size) {
+
+        @each $key,
+        $value in $values {
+          $suffix: str-replace(escapeClass($key), "rem");
+          $class: $prefix + $utility + $suffix;
+
+          @at-root .#{$class} {
+            #{$property}: $value;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Generador de breakpoints
+// @param {String} $direction - min o max
+// @param {String} $key - Key del breakpoint
+// @return {Mixin}
+@mixin breakpoint($key, $direction: min) {
+  $breakpoint: map-get($breakpoints, $key);
+  $media: if($direction =="max", ($breakpoint - 1), $breakpoint);
+
+  @if not $breakpoint {
+    @warn 'El Breakpoint no esta definido';
+  }
+
+  @else {
+    @media (#{$direction}-width: $media) {
+      @content;
+    }
+  }
+}
