@@ -1,19 +1,19 @@
 .toc {
   grid-area: toc;
-  @include media(max,l) {
+  @include breakpoint(l, max) {
     &:not(.is-active) {
       display: none;
     }
     order: -1;
   }
   &-toggle {
-    @include media(min,l){
+    @include breakpoint(l){
       display: none;
     }
   }
   &-content {
     padding-top: 2rem;
-    @include media(min,l){
+    @include breakpoint(l){
       border-left: 1px solid var(--color-border);
       padding-left: 2rem;
       padding-top: 3rem;

@@ -47,7 +47,7 @@ code, pre {
       }
     }
 
-    @include media(min,s){
+    @include breakpoint(s){
       padding: 1.5rem 0;
     }
   }
@@ -61,6 +61,10 @@ code, pre {
     // Fix for styles enabled
     > span:not(.line) {
       padding: 0 1rem;
+
+      @include breakpoint(s){
+        padding: 0 1.5rem;
+      }
     }
   }
 
@@ -68,7 +72,7 @@ code, pre {
     display: block;
     padding: 0 1rem;
 
-    @include media(min,s){
+    @include breakpoint(s){
       padding: 0 1.5rem;
     }
     &.hl {
@@ -164,7 +168,7 @@ code, pre {
   label {
     cursor: pointer;
     padding: .75rem 1rem;
-    @include media(min,s){
+    @include breakpoint(s){
       padding: .75rem 1.5rem;
     }
     font-size: .875rem;

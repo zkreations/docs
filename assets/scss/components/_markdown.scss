@@ -2,7 +2,7 @@
   color: var(--color-text);
   --space-block: 1.5rem;
   --space-headings: .75rem;
-  @include media(min,m) {
+  @include breakpoint(m) {
     line-height: 1.75;
     --space-block: 1.75rem;
   }
