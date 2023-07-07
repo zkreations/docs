@@ -185,3 +185,38 @@ code, pre {
     width: 100%;
   }
 }
+
+// Colors
+.chroma {
+  .nt, .nn {
+    color: #ffd8a8;
+  }
+  .na, .nc {
+    color: #ffa94d;
+  }
+  .p, .o {
+    color: #888;
+  }
+  .c, .cm, .c1, .cp {
+    color: #5c6370;
+    font-style: italic;
+  }
+  .kd, .kr, .nd {
+    color: #dab1eb;
+  }
+  .kd +.nx, .nv, .n {
+    color: #ffb1b1;
+  }
+  .kr +.nx {
+    color: #a3ffed;
+  }
+  .s2 {
+    color: #c7e19e;
+  }
+  .mi, .kt, .mh {
+    color: #a3f2ff;
+  }
+  .nb, .nf {
+    color: #b1c9ff;
+  }
+}
