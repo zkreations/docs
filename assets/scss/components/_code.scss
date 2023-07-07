@@ -23,6 +23,8 @@ code, pre {
   line-height: 1.5;
 
   pre {
+    // Fix for styles enabled
+    background-color: transparent !important;
     overflow-x: auto;
     color: #fff;
     padding: 1rem 0;
@@ -55,6 +57,11 @@ code, pre {
     white-space: pre;
     font-size: .875rem;
     width: 100%;
+
+    // Fix for styles enabled
+    > span:not(.line) {
+      padding: 0 1rem;
+    }
   }
 
   .line {
