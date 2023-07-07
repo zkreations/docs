@@ -1,18 +1,13 @@
 // utilidades
-
 .has-icon {
   display: flex;
   align-items: center;
   column-gap: var(--btn-gap, .75rem);
 }
 
-.italic {
-  font-style: italic;
-}
+@include utility(font-style, normal italic)
 
-.normal {
-  font-style: normal;
-}
+@include utility(text-transform, capitalize uppercase lowercase)
 
 .fs {
   @include utility(font-size, $font-size-values, true)
@@ -26,7 +21,20 @@
   @include utility(text-align, center left right justify)
 }
 
-.ox-auto {
-  overflow-x: auto;
-}
+// Overflow
+@include utility(overflow, (
+  o-auto: auto,
+  o-hidden: hidden,
+));
+
+@include utility(overflow-x, (
+  ox-auto: auto,
+  ox-hidden: hidden,
+));
+
+@include utility(overflow-y, (
+  oy-auto: auto,
+  oy-hidden: hidden,
+));
+
 // fin utilidades
