@@ -2,19 +2,19 @@
 // Developed with love by zkreations (https://zkreations.com/)
 
 // Herramientas
-@import "functions";
-@import "mixins";
+@import "tools/functions";
+@import "tools/mixins";
 
 // Configuracion
-@import "variables";
-@import "root";
+@import "settings/variables";
+@import "settings/root";
 
-// Layout
-@import "reset";
-@import "common";
-@import "layout";
+// Common
+@import "generic/normalize";
+@import "object/common";
 
 // Components
+@import "components/layout";
 @import "components/svg";
 @import "components/ui";
 @import "components/menu";
@@ -25,12 +25,10 @@
 @import "components/article";
 @import "components/markdown";
 @import "components/code";
+@import "components/error";
 
 // utils
 @import "utils";
-
-// Error
-@import "error";
 
 // Personalizado
 @import "custom";
