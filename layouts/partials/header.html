@@ -11,13 +11,13 @@
     </div>
     <div class="header-right">
       <!-- Dark mode toggle -->
-      <button class="theme-toggle" id="toggle-mode" aria-label="Light mode">
+      <button class="theme-toggle" data-outside="docs-mode" aria-label='{{ i18n "system" }}'>
         {{ partial "svg" (dict "icon" "sun") }}
       </button>
 
       <!-- Language toggle -->
       {{- if .Site.IsMultiLingual -}}
-        <button class="lang-toggle" id="toggle-lang" aria-label="Language">
+        <button class="lang-toggle" data-outside="docs-lang" aria-label='{{ i18n "languages" }}'>
           {{ partial "svg" (dict "icon" "language") }}
         </button>
       {{- end -}}
@@ -27,10 +27,27 @@
       </a>
 
       {{- with .Section -}}
-        <button class="toggle-version" id="toggle-version" aria-label="Version">
+        <button class="toggle-version" data-outside="docs-versions" aria-label='{{ i18n "versions" }}'>
           {{ . }}
         </button>
       {{- end -}}
+    </div>
+
+    <div class="dropdown" id="docs-mode">
+      <div class="list fw-500 theme-handle">
+        <button class="list-link has-icon" data-theme="system">
+          {{ partial "svg" (dict "icon" "desktop") }}
+          {{ i18n "system" }}
+        </button>
+        <button class="list-link has-icon" data-theme="light">
+          {{ partial "svg" (dict "icon" "sun") }}
+          {{ i18n "light" }}
+        </button>
+        <button class="list-link has-icon" data-theme="dark">
+          {{ partial "svg" (dict "icon" "moon") }}
+          {{ i18n "dark" }}
+        </button>
+      </div>
     </div>
 
     {{- with .Section -}}
@@ -54,21 +71,5 @@
       </div>
     {{- end -}}
     
-    <div class="dropdown" id="docs-mode">
-      <div class="list fw-500 theme-handle">
-        <button class="list-link has-icon" data-theme="system">
-          {{ partial "svg" (dict "icon" "desktop") }}
-          {{ i18n "system" }}
-        </button>
-        <button class="list-link has-icon" data-theme="light">
-          {{ partial "svg" (dict "icon" "sun") }}
-          {{ i18n "light" }}
-        </button>
-        <button class="list-link has-icon" data-theme="dark">
-          {{ partial "svg" (dict "icon" "moon") }}
-          {{ i18n "dark" }}
-        </button>
-      </div>
-    </div>
   </div>
 </div>

@@ -37,5 +37,8 @@ other = "Copiado"
 [versions]
 other = "Versiones"
 
+[languages]
+other = "Idiomas"
+
 [main_section_text]
 other = "Una lista de todos los documentos alojados para todas las versiones disponibles"

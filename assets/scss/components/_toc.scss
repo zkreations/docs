@@ -1,37 +1,89 @@
 .toc {
   grid-area: toc;
+
+  &-title {
+    margin-bottom: 1rem;
+
+    @include breakpoint(l) {
+      padding-left: 2rem;
+    }
+  }
+
   @include breakpoint(l, max) {
     &:not(.is-active) {
       display: none;
     }
+
     order: -1;
   }
+
   &-toggle {
-    @include breakpoint(l){
+    @include breakpoint(l) {
       display: none;
     }
   }
+
   &-content {
     padding-top: 2rem;
-    @include breakpoint(l){
-      border-left: 1px solid var(--color-border);
-      padding-left: 2rem;
+
+    @include breakpoint(l) {
+      box-shadow: 1px 0 0 0 var(--color-border) inset;
       padding-top: 3rem;
       position: sticky;
     }
   }
+
   nav {
-    > ul {
-      padding-top: 1rem;
-      a:hover {
+
+    // Enlaces
+    a {
+      @include breakpoint(l) {
+        padding-left: 2rem;
+      }
+
+      &:hover {
         color: var(--primary);
       }
+
+      &.is-visible {
+        box-shadow: 2px 0 0 0 var(--primary) inset;
+        color: var(--primary);
+      }
+    }
+
+    // Si la lista se puede contraer
+    ul ul {
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+
+      a {
+        padding-left: var(--toc-space);
+
+        @include breakpoint(l) {
+          padding-left: calc(var(--toc-space) + 2rem);
+        }
+      }
+
+      --toc-space: 1rem;
+
       ul {
-        margin: 1rem;
+        --toc-space: 2rem;
+
+        ul {
+          --toc-space: 3rem;
+        }
       }
-      li + li {
-        margin-top: .5rem;
-      }
+    }
+
+    // Si un elemento puede selecionar el siguiente
+    li + li {
+      margin-top: .5rem;
+    }
+  }
+
+  &-toggle {
+    &.is-active {
+      color: var(--primary);
     }
   }
 }

@@ -37,5 +37,8 @@ other = "Copied"
 [versions]
 other = "Versions"
 
+[languages]
+other = "Languages"
+
 [main_section_text]
 other = "A list of all hosted documents for all available versions"
