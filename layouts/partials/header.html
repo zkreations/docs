@@ -1,6 +1,6 @@
 <div class="container">
   <div class="header-wrapper">
-    <button class="header-toggle" id="toggle-menu" aria-label="toggle navigation">
+    <button class="header-toggle" data-outside="docs-sidebar" aria-label="toggle navigation">
       {{ partial "svg" (dict "icon" "bars") }}
     </button>
     <div class="header-logo fw-500">
@@ -9,6 +9,17 @@
         {{- .Site.Title | title -}}
       </a>
     </div>
+
+    <!-- Buscador -->
+    <div class="header-middle">
+      <div class="search-wrapper">
+        <button class="search-button" data-outside="search-button" aria-label="search">
+          {{ partial "svg" (dict "icon" "search") }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Botones de idioma, tema y versiones -->
     <div class="header-right">
       <!-- Dark mode toggle -->
       <button class="theme-toggle" data-outside="docs-mode" aria-label='{{ i18n "system" }}'>
