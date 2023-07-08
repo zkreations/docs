@@ -34,9 +34,10 @@
   }
 
   nav {
-
     // Enlaces
     a {
+      display: block;
+
       @include breakpoint(l) {
         padding-left: 2rem;
       }
