@@ -7,7 +7,7 @@
 
   @include breakpoint(l) {
     grid-template-areas: "aside-tree main-doc";
-    grid-template-columns: 17% minmax(0, 1fr);
+    grid-template-columns: var(--aside-width) minmax(0, 1fr);
   }
 
   @include breakpoint(l, max) {
@@ -17,8 +17,6 @@
 
 .template {
   min-height: 100vh;
-  flex-direction: column;
-  display: flex;
 }
 
 .container {
@@ -38,11 +36,14 @@
   width: 100%;
 
   &-logo {
-    display: flex;
-    align-items: center;
     font-size: 1rem;
+
     @include breakpoint(m) {
       font-size: 1.125rem;
+    }
+
+    &-image {
+      max-height: 42px;
     }
   }
 
@@ -59,6 +60,12 @@
 
     @include breakpoint(l) {
       display: none;
+    }
+  }
+
+  &-left {
+    @include breakpoint(l) {
+      width: var(--aside-width);
     }
   }
 
@@ -153,8 +160,6 @@
 
 .aside {
   overflow-y: auto;
-  top: 0;
-  bottom: 0;
   grid-area: aside-tree;
 
   &-tree {
@@ -168,6 +173,8 @@
 
   @include breakpoint(l, max) {
     position: fixed;
+    top: 0;
+    bottom: 0;
     z-index: 100;
     background-color: var(--bg-main);
     padding-left: 1.75rem;

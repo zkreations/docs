@@ -1,13 +1,24 @@
+{{- $logo := .Site.Params.main_logo -}}
+{{- $title := .Site.Title | title -}}
+
 <div class="container">
   <div class="header-wrapper">
-    <button class="header-toggle" data-outside="docs-sidebar" aria-label="toggle navigation">
-      {{ partial "svg" (dict "icon" "bars") }}
-    </button>
-    <div class="header-logo fw-500">
-      <a class="has-icon i-md" href="{{ $.Site.BaseURL }}{{- with .Section -}}{{ . }}{{ end }}">
-        {{ partial "svg" (dict "icon" $.Site.Params.main_icon) }}
-        {{- .Site.Title | title -}}
-      </a>
+    <div class="header-left flex items-center">
+      <button class="header-toggle" data-outside="docs-sidebar" aria-label="toggle navigation">
+        {{ partial "svg" (dict "icon" "bars") }}
+      </button>
+      <div class="header-logo flex items-center fw-500">
+        <a class="has-icon i-md" href="{{ $.Site.BaseURL }}{{- with .Section -}}{{ . }}{{ end }}">
+          {{- if $logo -}}
+            <img class="header-logo-image" src="{{- $logo -}}" alt="{{- $title -}}">
+          {{- else -}}
+            {{- with $.Site.Params.main_icon -}}
+              {{ partial "svg" (dict "icon" . "class" "flex-none" ) }}
+            {{- end -}}
+            {{- $title -}}
+          {{- end -}}
+        </a>
+      </div>
     </div>
 
     <!-- Buscador -->
