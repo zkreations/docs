@@ -37,4 +37,52 @@
   oy-hidden: hidden,
 ));
 
+// Display
+
+@include utility(display, (
+  block: block,
+  inline-block: inline-block,
+  inline: inline,
+  flex: flex,
+  inline-flex: inline-flex,
+  grid: grid,
+  inline-grid: inline-grid,
+  none: none,
+));
+
+// Flex Layout
+
+@include utility(align-items, (
+  items-start: flex-start,
+  items-end: flex-end,
+  items-center: center,
+));
+
+@include utility(justify-content, (
+  justify-start: flex-start,
+  justify-end: flex-end,
+  justify-center: center,
+  justify-between: space-between,
+  justify-around: space-around,
+  justify-evenly: space-evenly,
+));
+
+@include utility(flex-direction, (
+  row: row,
+  column: column,
+), true);
+
+@include utility(flex-wrap, (
+  wrap: wrap,
+  wrap-reverse: wrap-reverse,
+  nowrap: nowrap,
+));
+
+@include utility(flex, (
+  flex-1: 1 1 0,
+  flex-auto: auto,
+  flex-initial: initial,
+  flex-none: none,
+));
+
 // fin utilidades
