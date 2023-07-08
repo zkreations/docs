@@ -25,6 +25,10 @@ const tocLinks = TOC.querySelectorAll('a')
 function onScroll () {
   const sections = DOCS.querySelectorAll('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]')
 
+  if (sections.length === 0) {
+    return
+  }
+
   // Obtener el valor de la variable css --header-height
   const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'))
   const scrollPosition = (document.documentElement.scrollTop || document.body.scrollTop) + (headerHeight + 20)
@@ -32,8 +36,11 @@ function onScroll () {
   sections.forEach((section) => {
     if (section.offsetTop <= scrollPosition) {
       const tocLink = TOC.querySelector(`a[href="#${section.getAttribute('id')}"]`)
-      tocLinks.forEach((link) => link.classList.remove('is-visible'))
-      tocLink.classList.add('is-visible')
+
+      if (tocLink) {
+        tocLinks.forEach((link) => link.classList.remove('is-visible'))
+        tocLink.classList.add('is-visible')
+      }
     }
   })
 }

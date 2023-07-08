@@ -46,7 +46,9 @@
       }
 
       &.is-visible {
-        box-shadow: 2px 0 0 0 var(--primary) inset;
+        @include breakpoint(l) {
+          box-shadow: 2px 0 0 0 var(--primary) inset;
+        }
         color: var(--primary);
       }
     }
