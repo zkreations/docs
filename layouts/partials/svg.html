@@ -1,6 +1,6 @@
 
 {{ with .icon }}
-<svg class="i i-{{ . }}">
+<svg class="i i-{{ . }}{{ with $.class }} {{ . }}{{ end }}">
   <use href="{{ $.Site.BaseURL }}/svg-sprite.svg#{{ . }}"/>
 </svg>
 {{ end }}
