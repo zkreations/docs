@@ -1,5 +1,14 @@
 <header class="article-header flex items-center">
-  <h1 class="article-title fw-500">{{- partial "title" .Page -}}</h1>
+  <h1 class="article-title fw-500">
+    {{- partial "title" .Page -}}
+    {{- with .Page.Params.badge -}}
+      {{- if $.Site.Params.main_template_url -}}
+        <a href="{{ $.Site.Params.main_template_url }}" class="badge badge-big" target="_blank" rel="noreferrer noopener">{{ . }}</a>
+      {{- else -}}
+        <span class="badge badge-big">pro</span>
+      {{- end -}}
+    {{ end }}
+  </h1>
   {{- if .Site.Params.github_repo_edit -}}
     <a class="article-edit i-md" href="{{ $.Site.Params.github_repo_edit }}/{{ .Page.File.Path | replaceRE `\\` "/" }}" data-tts="down-right" aria-label="{{ i18n "edit_on_github" }}">
       {{ partial "svg" (dict "icon" "pencil") }}
