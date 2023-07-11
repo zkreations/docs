@@ -12,6 +12,11 @@
     {{ range (where .Section.Pages "Params.hidden" "ne" true) }}
       <li class="menu-item{{if or (eq $currentNode .Page) (.IsAncestor $currentNode )}} is-parent{{end}}">
         {{ if .IsSection }}
+        
+          {{- if .Page.IsSection -}}
+            <input class="menu-toggle" type="checkbox" id="menu-{{ md5 .Page }}"{{if or (eq $currentNode .Page) (.IsAncestor $currentNode )}} checked=""{{ end }}>
+          {{ end }}
+
           {{ template "tree-link" (dict "Page" . "CurrentPage" $.CurrentPage ) }}
           {{ template "tree-list" (dict "Section" . "CurrentPage" $.CurrentPage ) }}
         {{ else if and .IsPage .Content }}
@@ -23,8 +28,24 @@
 {{ end }}
 
 {{ define "tree-link" }}
+  {{- if .Page.IsSection -}}
+    <label for="menu-{{ md5 .Page }}" class="menu-label">
+  {{ end }}
+  
   <a href="{{ .Page.Permalink }}" class="menu-link fs-6{{ if (eq .CurrentPage .Page) }} is-active{{ end }}{{ with .Page.Params.icon }} has-icon{{ end }}">
     {{ partial "svg" (dict "icon" .Page.Params.icon ) }}
     {{- partial "title" .Page -}}
+
+    {{- with .Page.Params.badge -}}
+      <span class="menu-badge">{{ . }}</span>
+    {{ end }}
   </a>
+
+  {{- with .Page.IsSection -}}
+    {{ partial "svg" (dict "icon" "angle-down" "class" "menu-arrow" ) }}
+  {{ end }}
+
+  {{- if .Page.IsSection -}}
+    </label>
+  {{ end }}
 {{ end }}

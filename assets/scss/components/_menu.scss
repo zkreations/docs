@@ -49,12 +49,30 @@
   }
   &-item {
     position: relative;
-    &:not(.is-parent) > #{$this}-list {
-      display: none;
-    }
-    &.is-parent > #{$this}-link {
+    &.is-parent > #{$this}-link, &.is-parent > label #{$this}-link {
       --link-color: var(--primary)
     }
+    svg {
+      color: var(--color-border-inset);
+    }
+  }
+  &-arrow {
+    margin-left: auto;
+    transition: transform .3s;
+  }
+  &-toggle {
+    display: none;
+    &:checked + label .menu-arrow {
+      transform: rotate(180deg);
+    }
+    &:not(:checked) ~ #{$this}-list {
+      display: none;
+    }
+  }
+  &-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
   }
 }
 
