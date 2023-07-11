@@ -1,3 +1,6 @@
+[searchConfig]
+other = '{ cache: true }'
+
 [system]
 other = "Sistema"
 
@@ -12,6 +15,9 @@ other = "Contenido"
 
 [quick_search]
 other = "Busqueda rápida"
+
+[search_in_doc]
+other = "Buscar en documentos"
 
 [edit_on_github]
 other = "Editar en Github"
@@ -39,6 +45,9 @@ other = "Versiones"
 
 [languages]
 other = "Idiomas"
+
+[table_of_contents_toogle]
+other = "Mostrar/Ocultar tabla de contenidos"
 
 [main_section_text]
 other = "Una lista de todos los documentos alojados para todas las versiones disponibles"

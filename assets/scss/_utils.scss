@@ -85,4 +85,8 @@
   flex-none: none,
 ));
 
+// Position
+
+@include utility(position, absolute relative fixed sticky);
+
 // fin utilidades

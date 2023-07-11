@@ -6,7 +6,7 @@
     {{ partial "scripts" . }}
   </head>
   <body class="fs-7 fw-400 preload">
-    <div class="template">
+    <div class="template flex column">
       <header class="header">
         {{ partial "header" . }}
       </header>
@@ -27,5 +27,6 @@
       </div>
       {{ end }}
     </div>
+    {{ partial "search" . }}
   </body>
 </html>

@@ -37,6 +37,7 @@ $yellow:   #DE9E23 !default;
 $white:    #ffffff !default;
 $black:    #0e0f12 !default;
 
+$gray-50: #fafafa !default;
 $gray-100: #f0f1f3 !default;
 $gray-200: #cfd8dc !default;
 $gray-300: #b2bbbf !default;
@@ -46,6 +47,7 @@ $gray-600: #61696c !default;
 $gray-700: #45464c !default;
 $gray-800: #2e2f34 !default;
 $gray-900: #18191e !default;
+$gray-950: #0a0a0a !default;
 
 $green-100: tint-color($green, 90%) !default;
 $green-200: tint-color($green, 60%) !default;

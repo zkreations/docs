@@ -48,9 +48,6 @@
   }
 
   &-wrapper {
-    display: flex;
-    align-items: center;
-    position: relative;
     height: var(--header-height);
   }
 
@@ -66,6 +63,15 @@
   &-left {
     @include breakpoint(l) {
       width: var(--aside-width);
+    }
+  }
+
+  &-middle {
+    padding-left: 1rem;
+
+    @include breakpoint(l) {
+      padding-left: 3rem;
+      border-left: 1px solid var(--color-border);
     }
   }
 
@@ -173,8 +179,7 @@
 
   @include breakpoint(l, max) {
     position: fixed;
-    top: 0;
-    bottom: 0;
+    inset: 0 100% 0 auto;
     z-index: 100;
     background-color: var(--bg-main);
     padding-left: 1.75rem;
@@ -182,7 +187,6 @@
     transition-property: transform, box-shadow;
     transition-duration: .3s;
     transition-timing-function: var(--timing);
-    right: 100%;
     min-width: 280px;
 
     &:not(.is-active) {
@@ -234,7 +238,7 @@
       }
     }
   }
-}
+} 
 
 .group {
   display: flex;
@@ -244,4 +248,11 @@
 
 .preload * {
   transition: none !important;
+}
+
+.overlay {
+  position: fixed;
+  background: var(--bg-overlay);
+  inset: 0;
+  z-index: 110;
 }

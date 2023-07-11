@@ -2,3 +2,10 @@
 {{- $jsBundle := resources.Get "js/main.js" | js.Build $options | resources.Minify | fingerprint -}}
 
 <script src="{{ $jsBundle.RelPermalink }}" integrity="{{ $jsBundle.Data.Integrity }}" defer></script>
+
+
+{{- $searchJSFile := printf "js/%s.search.js" .Language.Lang }}
+{{- $searchJS := resources.Get "js/search.js" | resources.ExecuteAsTemplate $searchJSFile . | resources.Minify | fingerprint }}
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.6.32/dist/flexsearch.min.js" defer></script>
+<script src="{{ $searchJS.RelPermalink }}" integrity="{{ $searchJS.Data.Integrity }}" defer></script>
