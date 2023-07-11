@@ -220,3 +220,16 @@ code, pre {
     color: #b1c9ff;
   }
 }
+
+.brackets {
+  font-family: var(--font-monospace);
+  &::before, &::after {
+    color: var(--color-border);
+  }
+  &::before {
+    content: "{";
+  }
+  &::after {
+    content: "}";
+  }
+}
