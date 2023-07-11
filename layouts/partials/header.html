@@ -13,7 +13,7 @@
             <img class="header-logo-image" src="{{- $logo -}}" alt="{{- $title -}}">
           {{- else -}}
             {{- with $.Site.Params.main_icon -}}
-              {{ partial "svg" (dict "icon" . "class" "flex-none" ) }}
+              {{ partial "svg" (dict "icon" . "class" "flex-none header-logo-icon" ) }}
             {{- end -}}
             {{- $title -}}
           {{- end -}}
