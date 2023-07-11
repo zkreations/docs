@@ -7,12 +7,12 @@
     </div>
     <div class="section-content">
       <ul class="section-list">
-        {{ if (eq (.Site.Sections | len) 0) }}
-            <li><a href="#no-item">{{ i18n "no_items" }}</a></li>
-        {{ else }}
-          {{ range .Site.Sections }}
-            <li><a href="{{ .Permalink }}">{{ .Section }}</a></li>
+        {{ if .Site.Params.versions }}
+          {{ range .Site.Params.versions }}
+            <li><a href="/{{ . }}/">{{ . }}</a></li>
           {{ end }}
+        {{ else }}
+          <li><a href="#no-item">{{ i18n "no_items" }}</a></li>
         {{ end }}
       </ul>
     </div>

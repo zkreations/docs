@@ -2,7 +2,7 @@
 {{- $title := .Site.Title | title -}}
 
 <div class="container">
-  <div class="header-wrapper">
+  <div class="header-wrapper flex items-center relative">
     <div class="header-left flex items-center">
       <button class="header-toggle" data-outside="docs-sidebar" aria-label="toggle navigation">
         {{ partial "svg" (dict "icon" "bars") }}
@@ -23,11 +23,10 @@
 
     <!-- Buscador -->
     <div class="header-middle">
-      <div class="search-wrapper">
-        <button class="search-button" data-outside="search-button" aria-label="search">
-          {{ partial "svg" (dict "icon" "search") }}
-        </button>
-      </div>
+      <button class="search-toggle has-icon" data-outside="search-box" aria-label="search">
+        {{ partial "svg" (dict "icon" "search" "class" "flex-none") }}
+        <span>{{- i18n "search_in_doc" -}}</span>
+      </button>      
     </div>
 
     <!-- Botones de idioma, tema y versiones -->
@@ -39,12 +38,12 @@
 
       <!-- Language toggle -->
       {{- if .Site.IsMultiLingual -}}
-        <button class="lang-toggle" data-outside="docs-lang" aria-label='{{ i18n "languages" }}'>
+        <button class="lang-toggle" data-outside="docs-language" aria-label='{{ i18n "languages" }}'>
           {{ partial "svg" (dict "icon" "language") }}
         </button>
       {{- end -}}
 
-      <a class="toc-toggle" href="#doc" aria-label="toggle toc">
+      <a class="toc-toggle" href="#doc" aria-label='{{ i18n "table_of_contents_toogle" }}'>
         {{ partial "svg" (dict "icon" "bars-sort") }}
       </a>
 
@@ -72,11 +71,11 @@
       </div>
     </div>
 
-    {{- with .Section -}}
+    {{- with .Site.Params.versions -}}
       <div class="dropdown" id="docs-versions">
         <div class="list fw-500">
-          {{ range $.Site.Sections }}
-            <a class="list-link" href="{{ .Permalink }}">{{ .Section }}</a>
+          {{ range $.Site.Params.versions }}
+            <a class="list-link" href="/{{ . }}/">{{ . }}</a>
           {{ end }}
           <a class="list-link" href="{{ $.Site.BaseURL }}">{{ i18n "versions" }}</a>
         </div>
