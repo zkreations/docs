@@ -2,8 +2,8 @@
   <h1 class="article-title fw-500">
     {{- partial "title" .Page -}}
     {{- with .Page.Params.badge -}}
-      {{- if $.Site.Params.main_template_url -}}
-        <a href="{{ $.Site.Params.main_template_url }}" class="badge badge-big" target="_blank" rel="noreferrer noopener">{{ . }}</a>
+      {{- if $.Site.Params.badge_url -}}
+        <a href="{{ $.Site.Params.badge_url }}" class="badge badge-big" target="_blank" rel="noreferrer noopener">{{ . }}</a>
       {{- else -}}
         <span class="badge badge-big">pro</span>
       {{- end -}}
