@@ -40,6 +40,8 @@
   }
 
   &-link {
+    color: var(--link-color,inherit);
+
     &:hover {
       color: var(--primary)
     }
