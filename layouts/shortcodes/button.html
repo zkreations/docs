@@ -3,7 +3,7 @@
 {{- $name := .Get "name" | default "undefined" -}}
 {{- $icon := .Get "icon" -}}
 
-<a class="btn{{ with .Get "type" }} btn-{{ . }}{{ end }}" href="{{ $href }}"{{ if hasPrefix  $href  "http" }} target="_blank" rel="noreferrer nofollow noopener"{{ end }}>
+<a class="btn{{ with .Get "type" }} btn-{{ . }}{{ end }}" href="{{ $href | relLangURL }}"{{ if hasPrefix  $href  "http" }} target="_blank" rel="noreferrer nofollow noopener"{{ end }}>
   {{ partial "svg" (dict "icon" $icon) }}
   {{ $name }}
 </a>
