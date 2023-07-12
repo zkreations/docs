@@ -1,7 +1,5 @@
 ---
 title: Enlace de página
-date: 2022-09-26T12:42:55.109Z
-weight: 5
 description: Botones con enlaces. Si el botón contiene un enlace externo abrirá en una
   nueva pestaña.
 ---
@@ -24,10 +22,10 @@ Enlaces a paginas. Si el enlace es externo se abrirá en una nueva ventana, tamb
 ## Ejemplo
 
 ```go
-{{</* pagelink title="Inicio de documentación" href="/home" */>}}
+{{</* pagelink title="Inicio de documentación" href="/1.0/starting" */>}}
 {{</* pagelink title="Página de búsqueda" name="Google" href="https://google.com" */>}}
 ```
 
-{{< pagelink title="Inicio de documentación" href="/home.md" >}}
+{{< pagelink title="Inicio de documentación" href="/1.0/starting" >}}
 
 {{< pagelink title="Página de búsqueda" name="Google" href="https://google.com" >}}

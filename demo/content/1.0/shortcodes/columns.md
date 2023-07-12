@@ -1,7 +1,5 @@
 ---
 title: Columnas
-date: 2022-09-26T12:42:35.077Z
-weight: 3
 description: Crea fácilmente columna de contenido, útil para agrupan en un mismo segmento
   más información.
 ---

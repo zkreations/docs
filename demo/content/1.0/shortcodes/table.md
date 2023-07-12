@@ -1,7 +1,5 @@
 ---
 title: Tablas
-date: 2022-09-26T12:43:03.557Z
-weight: 6
 description: Tablas responsive con la sintaxis de markdown.
 ---
 

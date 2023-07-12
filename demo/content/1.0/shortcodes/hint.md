@@ -1,7 +1,5 @@
 ---
 title: Avisos
-date: 2022-09-26T12:42:45.013Z
-weight: 4
 description: Destaca diferentes tipos de mensajes con estilos según el contexto.
 ---
 

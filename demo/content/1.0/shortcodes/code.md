@@ -1,7 +1,5 @@
 ---
 title: Código
-date: 2022-09-26T12:41:23.214Z
-weight: 2
 description: Crea bloques de código explicativos, mas poderosos que los bloques de código
   normales.
 ---
@@ -23,6 +21,13 @@ Crea bloques de código explicativos, mas poderosos que los bloques de código n
 - **hl**: líneas de resaltado. (opcional)
 - **lang**: Tipo de lenguaje. Por defecto: `html`. (opcional)
 - **example**: Interpretar código de ejemplo, solo válido para html (obligatorio en todos los casos), css y javascript: `true`, `false`. Por defecto: `false` (opcional)
+
+
+### Opciones de tabs
+
+- **Get 0**: Tipo de lenguaje. Por defecto: `html`. (opcional)
+- **Get 1**: Nombre del archivo. (opcional)
+
 
 ## Ejemplo
 
@@ -77,6 +82,9 @@ Este código esta seleccionando el cuerpo del documento.
 {{</* tab "css" */>}}
 ...content
 {{</* /tab */>}}
+{{</* tab "js" "main.js" */>}}
+...content
+{{</* /tab */>}}
 {{</* /code */>}}
 ```
 
@@ -85,6 +93,9 @@ Este código esta seleccionando el cuerpo del documento.
 ...content
 {{< /tab >}}
 {{< tab "css" >}}
+...content
+{{< /tab >}}
+{{< tab "js" "main.js" >}}
 ...content
 {{< /tab >}}
 {{< /code >}}
