@@ -9,7 +9,7 @@
       <ul class="section-list">
         {{ if .Site.Params.versions }}
           {{ range .Site.Params.versions }}
-            <li><a href="/{{ . }}/">{{ . }}</a></li>
+            <li><a href="{{ . }}">{{ . }}</a></li>
           {{ end }}
         {{ else }}
           <li><a href="#no-item">{{ i18n "no_items" }}</a></li>
