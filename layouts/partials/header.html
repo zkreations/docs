@@ -8,7 +8,7 @@
         {{ partial "svg" (dict "icon" "bars") }}
       </button>
       <div class="header-logo flex items-center fw-500">
-        <a class="has-icon i-md" href="{{ $.Site.BaseURL }}{{- with .Section -}}{{ . }}{{ end }}">
+        <a class="has-icon i-md" href='{{ "/" | relLangURL }}'>
           {{- if $logo -}}
             <img class="header-logo-image" src="{{- $logo -}}" alt="{{- $title -}}">
           {{- else -}}
