@@ -1,0 +1,9 @@
+# Folders & files
+node_modules/
+package-lock.json
+
+# gohugo
+_site/
+resources/
+.hugo_build.lock
+src/
