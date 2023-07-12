@@ -9,8 +9,9 @@
     {{- $parentSection := (replaceRE $regex "$1" $page.RelPermalink) -}}
     {{- $parentPage := $.Site.GetPage $parentSection -}}
     {{- $parentIcon := $parentPage.Params.icon | default "bookmark" -}}
+    {{- $parentTitle := $parentPage.Title -}}
 
-    {{- $.Scratch.Add "index" (dict "id" $index "url" $page.RelPermalink "summary" $page.Summary "title" $page.Title "parent" $parentSection "icon" $parentIcon) -}}
+    {{- $.Scratch.Add "index" (dict "id" $index "url" $page.RelPermalink "summary" $page.Summary "title" $page.Title "parent" $parentSection "parent_title" $parentPage.Title "icon" $parentIcon) -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
