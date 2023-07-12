@@ -10,7 +10,7 @@
   <div class="footer-wrapper">
     <div class="footer-item">{{ i18n "edited" }}: {{ $lastmod }}</div>
     {{- with .Site.Copyright }}
-      <div class="footer-item">{{ . }}</div>
+      <div class="footer-item">{{ . | markdownify }}</div>
     {{- end }}
   </div>
 </footer>
