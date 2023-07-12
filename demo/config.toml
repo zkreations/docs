@@ -2,16 +2,16 @@ title = 'Docs'
 theme = 'docs'
 baseURL = 'https://example.com/'
 
-languageCode = 'es'
-defaultContentLanguage = 'es'
-
-copyright = "Created by zkreations"
+copyright = "Created by [zkreations](https://www.zkreations.com)"
 canonifyURLs = true
 enableRobotsTXT = true
 enableGitInfo = false
 
 enableInlineShortcodes = true
 disableKinds = ["taxonomy","taxonomyTerm","term","RSS"]
+
+languageCode = 'es'
+defaultContentLanguage = 'es'
 
 [languages]
   [languages.es]
@@ -24,11 +24,11 @@ disableKinds = ["taxonomy","taxonomyTerm","term","RSS"]
 
 # Shortcodes HTML
 [markup]
-  [markup.goldmark.renderer]
-    unsafe = true
-
   [markup.highlight]
     noClasses = false
+
+  [markup.goldmark.renderer]
+    unsafe = true
 
   [markup.tableOfContents]
     startLevel = 2
@@ -37,3 +37,7 @@ disableKinds = ["taxonomy","taxonomyTerm","term","RSS"]
 [params]
   github_repo_edit = "https://github.com/zkreations/docs/blob/master/demo/content"
   date_format = "January 2, 2006"
+  versions = [ "1.0" ]
+  badge_url = "https://www.zkreations.com"
+  main_icon = "book-open"
+  # main_logo = "tu-logo.svg"
