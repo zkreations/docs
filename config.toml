@@ -1,5 +1,5 @@
 title = 'Docs'
-baseURL = 'https://example.com/'
+baseURL = 'https://hudocs.com'
 
 copyright = "Created by [zkreations](https://www.zkreations.com)"
 canonifyURLs = true
