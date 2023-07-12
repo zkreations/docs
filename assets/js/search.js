@@ -13,7 +13,7 @@ const indexConfig = Object.assign(dataConfig, {
   doc: {
     id: 'id',
     field: ['title', 'summary'],
-    store: ['parent', 'title', 'url', 'summary', 'icon']
+    store: ['parent', 'title', 'parent_title', 'url', 'summary', 'icon']
   }
 })
 
@@ -30,6 +30,7 @@ function init () {
   fetch(dataJSON)
     .then(pages => pages.json())
     .then(pages => {
+      console.log(pages)
       // eslint-disable-next-line no-undef
       window.docsIndex = FlexSearch.create('balance', indexConfig)
       window.docsIndex.add(pages)
@@ -56,14 +57,15 @@ function search () {
 
   const hits = window.docsIndex.search(input.value, 10)
 
-  // Agrupar resultados dependiendo de la sección, obteniendo la key 'parent' y 'icon'
+  // Agrupar resultados dependiendo de la sección obteniendo la key 'parent'
   const groupedHits = hits.reduce((acc, hit) => {
     const parent = hit.parent
     const icon = hit.icon
+    const parent_title = hit.parent_title
     if (!acc[parent]) {
       acc[parent] = []
     }
-    acc[parent].push(Object.assign(hit, { icon }))
+    acc[parent].push(Object.assign(hit, { icon, parent_title }))
     return acc
   }, {})
 
@@ -73,7 +75,7 @@ function search () {
     const groupElement = stringToHTML(`<div class="search-group">
       <div class="search-group-title capitalize fs-6 fw-500 has-icon">
         <svg class="i i-${group[0].icon} flex-none" viewBox="0 0 24 24"><use href="/svg-sprite.svg#${group[0].icon}"></use></svg>
-        <h3 class="">${key}</h3>
+        <h3 class="">${group[0].parent_title}</h3>
       </div>
       <ul class="search-group-list"></ul>
     </div>`)
