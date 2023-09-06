@@ -19,7 +19,7 @@ weight: 1
 
 ## Requisitos
 
-- Hugo 0.100.0 o superior
+- Hugo 0.100.0 o superior (versión extendida)
 - Git - [Instalar Git](https://git-scm.com/downloads)
 - Ganas de documentar
 
