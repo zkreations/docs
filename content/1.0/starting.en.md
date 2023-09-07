@@ -8,6 +8,8 @@ Hello! This is a markup example of your new documentation. I made this project t
 
 ## Features
 
+- Optimized compatible with [Core Web Vitals](https://pagespeed.web.dev/report?url=https://hudocs.com)
+- Security level A+ in [Mozilla Observatory](https://observatory.mozilla.org/analyze/hudocs.com)
 - Support for multiple languages
 - No dependencies
 - Automated advanced search engine

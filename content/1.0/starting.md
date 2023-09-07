@@ -4,10 +4,12 @@ icon: coffee
 weight: 1
 ---
 
-¡Hola! este es un ejemplo de tu nueva documentación. Realicé este proyecto para documentar fácilmente mis propios proyectos, pero pense que estaría genial compartirlo, asi te ahorrarás el tiempo que me tomó aprender todo lo que finalmente, resultó en esta documentación. ¡Ojala realices muchos trabajos!
+¡Hola! Este es un ejemplo de tu nueva documentación. Realicé este proyecto para documentar fácilmente mis propios proyectos, pero pense que estaría genial compartirlo, asi te ahorrarás el tiempo que me tomó aprender todo lo que finalmente, resultó en esta documentación. ¡Ojala realices muchos trabajos!
 
 ## Características
 
+- Optimizado compatible con [Core Web Vitals](https://pagespeed.web.dev/report?url=https://hudocs.com)
+- Nivel de Seguridad A+ en [Mozilla Observatory](https://observatory.mozilla.org/analyze/hudocs.com)
 - Soporte para múltiples idiomas
 - Sin dependencias
 - Buscador avanzado automatizado
