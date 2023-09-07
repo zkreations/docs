@@ -9,7 +9,7 @@
   for = "/*"
   [headers.values]
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = "default-src 'self' cdn.jsdelivr.net fonts.bunny.net; frame-ancestors 'self'; form-action 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net;"
+    Content-Security-Policy = "default-src 'self' cdn.jsdelivr.net fonts.bunny.net; frame-ancestors 'self'; form-action 'self';"
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "sameorigin"
     X-XSS-Protection = "1; mode=block"
@@ -17,3 +17,4 @@
     Permissions-Policy = "geolocation=(self), microphone=(), camera=()"
     Cache-Control = "public, max-age=31536000"
     Access-Control-Allow-Origin = "*"
+style-src 'self' https://*.netlify.app 'unsafe-inline'
