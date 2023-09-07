@@ -4,3 +4,27 @@
 
 [build.environment]
   HUGO_VERSION = "0.106.0"
+
+
+  # Referrer-Policy: strict-origin-when-cross-origin
+  # Content-Security-Policy: default-src 'self'; frame-ancestors 'self'; form-action 'self';
+  # X-Content-Type-Options: nosniff
+  # X-Frame-Options: sameorigin
+  # X-XSS-Protection: 1; mode=block
+  # Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  # Permissions-Policy: geolocation=(self), microphone=(), camera=()
+  # Cache-Control: public, max-age=31536000
+  # Access-Control-Allow-Origin: *
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; frame-ancestors 'self'; form-action 'self';"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "sameorigin"
+    X-XSS-Protection = "1; mode=block"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Permissions-Policy = "geolocation=(self), microphone=(), camera=()"
+    Cache-Control = "public, max-age=31536000"
+    Access-Control-Allow-Origin = "*"
+
