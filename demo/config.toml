@@ -13,6 +13,8 @@ disableKinds = ["taxonomy","taxonomyTerm","term","RSS"]
 languageCode = 'es'
 defaultContentLanguage = 'es'
 
+summaryLength = 20
+
 [languages]
   [languages.es]
     languageName = "Español"
@@ -35,6 +37,7 @@ defaultContentLanguage = 'es'
     endLevel = 3
 
 [params]
+  description = "Documenta tus proyectos con Hugo"
   github_repo_edit = "https://github.com/zkreations/docs/blob/master/demo/content"
   date_format = "January 2, 2006"
   versions = [ "1.0" ]
