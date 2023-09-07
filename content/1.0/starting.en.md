@@ -4,7 +4,7 @@ icon: coffee
 weight: 1
 ---
 
-Hello! this is an example of your new documentation. I made this project to easily document my own projects, but I thought it would be great to share it, so you will save the time it took me to learn everything that finally, resulted in this documentation. I hope you do a lot of work!
+Hello! This is a markup example of your new documentation. I made this project to easily document my own projects, but I thought it would be great to share it, so you will save the time it took me to learn everything that finally, resulted in this documentation. I hope you do a lot of work!
 
 ## Features
 
@@ -19,7 +19,7 @@ Hello! this is an example of your new documentation. I made this project to easi
 
 ## Requirements
 
-- Hugo 0.100.0 or higher
+- Hugo 0.100.0 or higher (extended version)
 - Git - [Install Git](https://git-scm.com/downloads)
 - Desire to document
 
