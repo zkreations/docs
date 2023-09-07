@@ -5,10 +5,12 @@
 <title>{{ partial "title" . }} ~ {{ .Site.Title  | humanize | title }}</title>
 <meta name="description" content="{{ .Page.Params.description | default .Site.Params.description }}">
 
-{{- $script := resources.Get "js/dark.js" | resources.Minify -}}
+{{- $script := resources.Get "js/dark.js" | resources.Minify | fingerprint -}}
 {{ with $script.Content }}
 <meta name="color-scheme" content="light dark"/>
-<script>{{ . | safeJS }}</script>
+<script nonce="{{ $script.Data.Integrity }}">
+    {{ . | safeJS }}
+</script>
 {{ end }}
 
 <link rel="icon" href='{{ "favicon.png" | relURL }}' type="image/x-icon">
