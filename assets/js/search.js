@@ -30,7 +30,6 @@ function init () {
   fetch(dataJSON)
     .then(pages => pages.json())
     .then(pages => {
-      console.log(pages)
       // eslint-disable-next-line no-undef
       window.docsIndex = FlexSearch.create('balance', indexConfig)
       window.docsIndex.add(pages)
