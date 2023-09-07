@@ -2,7 +2,7 @@
 <meta charset="UTF-8"/>
 <meta content='width=device-width,initial-scale=1' name='viewport'/>
 
-<title>{{ partial "title" . }} ~ {{ .Site.Title  | humanize | title }}</title>
+<title>{{ partial "title" . }}</title>
 <meta name="description" content="{{ .Page.Params.description | default .Site.Params.description }}">
 
 {{- $script := resources.Get "js/dark.js" | resources.Minify -}}

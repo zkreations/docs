@@ -1,0 +1,30 @@
+
+{{- if eq .Kind "404" -}}
+  <meta name="robots" content="noindex, follow">
+{{- else -}}
+  <meta content='index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1' name='robots'/>
+{{- end -}}
+
+<meta content='{{ partial "title" . }}' property='og:title'/>
+
+{{- with .Description -}}
+  <meta name='description' content='{{ . }}'/>
+  <meta name='og:description' content='{{ .  }}'/>
+{{- else -}}
+  {{- with .Summary | plainify -}}
+  <meta name='description' content='{{ . }}'/>
+  <meta name='og:description' content='{{ . }}'/>
+  {{- else -}}
+  <meta name='description' content='{{ .Site.Params.description }}'>
+  <meta name='og:description' content='{{ .Site.Params.description }}'/>
+  {{- end -}}
+{{- end -}}
+
+{{- with .Permalink -}}
+  <link rel="canonical" href="{{ . }}">
+  <meta content='{{ . }}' property='og:url'/>
+  <meta content='{{ . }}' name='twitter:url'/>
+{{- end -}}
+
+<meta content='summary_large_image' name='twitter:card'/>
+
