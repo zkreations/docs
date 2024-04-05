@@ -18,7 +18,7 @@ Realicé este proyecto para documentar fácilmente mis propios proyectos, pero p
 
 ## Requisitos
 
-- Hugo 0.100.0 o superior
+- Hugo 0.100.0 o superior (versión extendida)
 - Git - [Instalar Git](https://git-scm.com/downloads)
 - Ganas de documentar
 
