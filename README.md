@@ -2,38 +2,38 @@
 
 ![Docs](https://raw.githubusercontent.com/zkreations/docs/main/images/screenshot.png)
 
-Realicé este proyecto para documentar fácilmente mis propios proyectos, pero pense que estaría genial compartirlo, asi te ahorrarás el tiempo que me tomó aprender todo lo que finalmente, resultó en esta documentación. ¡Ojala realices muchos trabajos!
+I made this project to easily document my own projects, but I thought it would be great to share it, so you will save the time it took me to learn everything that finally resulted in this documentation. I hope you do a lot of work!
 
-## Características
+## Features
 
-- Optimizado compatible con [Core Web Vitals](https://pagespeed.web.dev/report?url=https://hudocs.com)
-- Nivel de Seguridad A+ en [Mozilla Observatory](https://observatory.mozilla.org/analyze/hudocs.com)
-- Soporte para múltiples idiomas
-- Sin dependencias
-- Buscador avanzado automatizado
-- Tema claro y oscuro
-- Shortcodes para alertas, notas, tablas, etc.
-- Bloques de código avanzados
-- Alta personalización
+- Optimized compatible with [Core Web Vitals](https://pagespeed.web.dev/report?url=https://hudocs.com)
+- A+ Security Level on [Mozilla Observatory](https://observatory.mozilla.org/analyze/hudocs.com)
+- Support for multiple languages
+- No dependencies
+- Advanced automated searcher
+- Light and dark theme
+- Shortcodes for alerts, notes, tables, etc.
+- Advanced code blocks
+- High customization
 
-## Requisitos
+## Requirements
 
-- Hugo 0.100.0 o superior (versión extendida)
-- Git - [Instalar Git](https://git-scm.com/downloads)
-- Ganas de documentar
+- Hugo 0.100.0 or higher (extended version)
+- Git - [Install Git](https://git-scm.com/downloads)
+- Desire to document
 
 
-## Instalar
+## Install
 
-Ve a la raíz de tu proyecto de Hugo y ejecuta el siguiente comando:
+Go to the root of your Hugo project and run the following command:
 
 ```bash
 git submodule add https://github.com/zkreations/docs themes/docs
 ```
 
-## Estructura recomendada
+## Recommended structure
 
-Realicé esta documentación pensando en que podrías generar multiples versiones de un mismo proyecto, es por eso que la estructura recomendada debería contener primero un número de versión, por ejemplo:
+I made this documentation thinking that you could generate multiple versions of the same project, that's why the recommended structure should first contain a version number, for example:
 
 ```bash
 content
@@ -41,38 +41,35 @@ content
     └── index.md
 ```
 
-Si quieres empezar rápidamente, utiliza el ejemplo que he dejado en la carpeta **demo**, la cual es la misma que estas leyendo justo ahora. Ejecuta el siguiente comando:
+If you want to start quickly, use the example I have left in the **demo** folder, which is the same one you are reading right now. Run the following command:
 
 ```bash
 cp -R themes/docs/demo/content .
 ```
 
-## Configurar
+## Configure
 
-El tema contiene algunas opciones útiles que te pueden ayudar a personalizar aún mas tus documentos. Copia el archivo **demo/config.toml** y reemplazar la información con tus datos. Por último inicia el servidor local ejecutando:
+The theme contains some useful options that can help you further customize your documents. Copy the **demo/config.toml** file and replace the information with your data. Finally start the local server by running:
 
 ```bash
 hugo serve
 ```
 
-## Contribuciones
+## Contributions
 
-Las contribuciones son bienvenidas, sacaré tiempo para revisar cualquier solicitud siempre y cuando tengas en cuenta lo siguiente al realizarlas:
+Contributions are welcome, I will take time to review any request as long as you keep the following in mind when making them:
 
-- No agregar más opciones que puedan incrementar la complejidad.
-- Evitar JavasScript en lo posible si lo puedes realizar con CSS.
-- No intervenir con las opciones personalizadas de los usuarios.
+- Do not add more options that can increase complexity.
+- Avoid JavaScript as much as possible if you can do it with CSS.
+- Do not interfere with users' custom options.
 
-## Nota final
+## Final note
 
-Si te gusta este proyecto, considera calificarme con una [estrella en github](https://github.com/zkreations/docs/stargazers), no cuesta nada y para mi significa mucho. También puedes [invitarme un café](https://ko-fi.com/zkreations) para que pueda seguir creando cosas como esta.
+If you like this project, consider rating me with a [star on github](https://github.com/zkreations/docs/stargazers), it costs nothing and means a lot to me. You can also [buy me a coffee](https://ko-fi.com/zkreations) so I can continue creating things like this.
 
-¡Empieza a documentar!
+Start documenting!
 
 
 ## License
 
 **Docs** is licensed under the MIT License
-
-
-
