@@ -1,6 +1,11 @@
 
 {{ with .icon }}
-<svg class="i i-{{ . }}{{ with $.class }} {{ . }}{{ end }}">
-  <use href="{{ $.Site.BaseURL }}/svg-sprite.svg#{{ . }}"/>
-</svg>
+  {{ $iconName := . }}
+  {{ $iconPath := printf "icons/%s.svg" . }}
+  {{ with resources.Get $iconPath }}
+    {{ $content := .Content | replaceRE "^<svg[^>]*>" "" | replaceRE "</svg>$" "" }}
+    <svg class="i i-{{ $iconName }}{{ with $.class }} {{ . }}{{ end }}" viewBox="0 0 24 24">
+      {{ $content | safeHTML }}
+    </svg>
+  {{ end }}
 {{ end }}
