@@ -1,106 +1,164 @@
-// eslint-disable
+/*
 {{ $searchDataFile := printf "json/%s.index.json" .Language.Lang }}
 {{ $searchData := resources.Get "json/index.json" | resources.ExecuteAsTemplate $searchDataFile . | resources.Minify | resources.Fingerprint }}
-{{ $searchConfig := i18n "searchConfig" | default "{}" }}
+*/
 
-// eslint-enable
 const dataJSON = '{{ $searchData.RelPermalink }}'
-const dataConfig = {{ $searchConfig }}
 const input = document.getElementById('search-input')
 const results = document.getElementById('search-results')
 
-const indexConfig = Object.assign(dataConfig, {
-  doc: {
-    id: 'id',
-    field: ['title', 'summary'],
-    store: ['parent', 'title', 'parent_title', 'url', 'summary', 'icon']
-  }
+// eslint-disable-next-line no-undef
+const index = FlexSearch.Index({
+  tokenize: 'forward',
+  cache: true
 })
 
-const stringToHTML = (str) => {
+// Object to store documents and sections
+const documents = {}
+
+// Main function to initialize the search
+async function initSearch () {
+  input.removeEventListener('focus', initSearch)
+  input.required = true
+
+  try {
+    // Load data from the JSON file
+    const response = await fetch(dataJSON)
+    const pages = await response.json()
+
+    documents.pages = pages.documents
+    documents.sections = pages.sections
+
+    // Add documents to the index
+    indexDocuments(documents.pages)
+  } catch (error) {
+    console.error('Error loading data:', error)
+  }
+
+  input.required = false
+  search()
+}
+
+// Function to add documents to the search index
+// @param pages: Array of documents
+function indexDocuments (pages) {
+  pages.forEach(page => {
+    index.add(page.id, `${page.title} ${page.summary}`)
+  })
+}
+
+// Function to search and display the results
+async function search () {
+  // Clear previous results
+  results.innerHTML = ''
+
+  if (!input.value) return
+
+  try {
+    const hits = await index.searchAsync(input.value, 10)
+    const groupedHits = groupResultsByParent(hits)
+
+    // Display grouped results
+    displayGroupedResults(groupedHits)
+  } catch (error) {
+    console.error('Error in search:', error)
+  }
+}
+
+// Function to group results by "parent"
+// @param hits: Array of document IDs
+// @returns Object with grouped results
+function groupResultsByParent (hits) {
+  return hits.reduce((groups, hitId) => {
+    const page = documents.pages.find(doc => doc.id === hitId)
+    if (page) {
+      const parent = page.parent
+      const section = documents.sections[parent] || {}
+      const group = groups[parent] || {
+        title: section.title || 'Untitled',
+        icon: section.icon || '',
+        iconContent: section.icon_content || '',
+        pages: []
+      }
+
+      // Add page to the corresponding group
+      group.pages.push(page)
+      groups[parent] = group
+    }
+    return groups
+  }, {})
+}
+
+// Function to display the grouped results
+// @param groupedHits: Object with grouped results
+function displayGroupedResults (groupedHits) {
+  Object.values(groupedHits).forEach(group => {
+    const groupElement = createGroupElement(group)
+    results.appendChild(groupElement)
+  })
+}
+
+// Function to create the HTML element for a group
+// @param group: Object with group data
+// @returns HTML element
+function createGroupElement (group) {
+  const groupElement = stringToHTML(`
+    <div class="search-group">
+      <div class="search-group-title capitalize fs-6 fw-500 has-icon">
+        <svg class="i i-${group.icon} flex-none" viewBox="0 0 24 24">
+          ${group.iconContent}
+        </svg>
+        <h3>${group.title}</h3>
+      </div>
+      <ul class="search-group-list"></ul>
+    </div>
+  `)
+
+  const groupList = groupElement.querySelector('.search-group-list')
+  group.pages.forEach(page => {
+    const pageElement = createPageElement(page)
+    groupList.appendChild(pageElement)
+  })
+
+  return groupElement
+}
+
+// Function to create the HTML element for a page
+// @param page: Object with page data
+// @returns HTML element
+function createPageElement (page) {
+  const summary = truncate(page.summary, 100)
+  return stringToHTML(`
+    <li class="search-item">
+      <a class="search-link" href="${page.url}">
+        <div class="search-title fs-6 fw-500">${page.title}</div>
+        ${summary ? `<p class="search-summary">${summary}</p>` : ''}
+      </a>
+    </li>
+  `)
+}
+
+// Function to truncate text to a specified length
+// @param str: String to truncate
+// @param length: Maximum length
+function truncate (str, length) {
+  return str.length > length ? `${str.slice(0, length)}...` : str
+}
+
+// Function to convert a string to an HTML node
+// @param str: String to convert
+// @returns HTML node
+function stringToHTML (str) {
   const parser = new DOMParser()
   const doc = parser.parseFromString(str, 'text/html')
   return doc.body.firstChild
 }
 
-function init () {
-  input.removeEventListener('focus', init)
-  input.required = true
-
-  fetch(dataJSON)
-    .then(pages => pages.json())
-    .then(pages => {
-      // eslint-disable-next-line no-undef
-      window.docsIndex = FlexSearch.create('balance', indexConfig)
-      window.docsIndex.add(pages)
-    })
-    // eslint-disable-next-line no-return-assign
-    .then(() => input.required = false)
-    .then(search)
-}
-
-function truncate (str, length) {
-  return str.length > length
-    ? str.slice(0, length) + '...'
-    : str
-}
-
-function search () {
-  while (results.firstChild) {
-    results.removeChild(results.firstChild)
-  }
-
-  if (!input.value) {
-    return
-  }
-
-  const hits = window.docsIndex.search(input.value, 10)
-
-  // Agrupar resultados dependiendo de la sección obteniendo la key 'parent'
-  const groupedHits = hits.reduce((acc, hit) => {
-    const parent = hit.parent
-    const icon = hit.icon
-    const parent_title = hit.parent_title
-    if (!acc[parent]) {
-      acc[parent] = []
-    }
-    acc[parent].push(Object.assign(hit, { icon, parent_title }))
-    return acc
-  }, {})
-
-  // Recorrer los resultados agrupados y crear un elemento por cada grupo
-  Object.keys(groupedHits).forEach((key) => {
-    const group = groupedHits[key]
-    const groupElement = stringToHTML(`<div class="search-group">
-      <div class="search-group-title capitalize fs-6 fw-500 has-icon">
-        <svg class="i i-${group[0].icon} flex-none" viewBox="0 0 24 24"><use href="/svg-sprite.svg#${group[0].icon}"></use></svg>
-        <h3 class="">${group[0].parent_title}</h3>
-      </div>
-      <ul class="search-group-list"></ul>
-    </div>`)
-    const groupList = groupElement.querySelector('.search-group-list')
-
-    group.forEach((page) => {
-      const content = truncate(page.summary, 100)
-      const data = stringToHTML(`<li class="search-item">
-        <a class="search-link" href="${page.url}">
-          <div class="search-title fs-6 fw-500">${page.title}</div>
-          ${content === '' ? '' : '<p class="search-summary">' + content + '</p>'}
-        </a>
-      </li>`)
-      groupList.appendChild(data)
-    })
-    results.appendChild(groupElement)
-  })
-}
-
-function initSearch (input, container) {
-  if (!input || !container) {
-    return
-  }
-
-  input.addEventListener('focus', init)
+// Function to initialize search events when the input is focused or when typing
+function initSearchEvents () {
+  input.addEventListener('focus', initSearch)
   input.addEventListener('keyup', search)
 }
 
-initSearch(input, results)
+// Initialize the search events
+initSearchEvents()
