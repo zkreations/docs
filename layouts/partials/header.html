@@ -29,8 +29,9 @@
     </div>
 
     <div class="header-right">
-      <button class="theme-toggle" data-outside="docs-mode" aria-label='{{ i18n "system" }}'>
+      <button class="toggle-theme" data-outside="docs-mode" aria-label='{{ i18n "system" }}'>
         {{ partial "svg" (dict "icon" "sun") }}
+        {{ partial "svg" (dict "icon" "moon") }}
       </button>
 
       {{- if .Site.IsMultiLingual -}}
