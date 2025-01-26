@@ -1,14 +1,13 @@
 {
-  "version": 2,
   "builds": [
     {
-      "src": "public/**/*",
-      "use": "@vercel/static"
+      "src": "vercel-build.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "public"
+      }
     }
   ],
-  "env": {
-    "HUGO_VERSION": "0.106.0"
-  },
   "headers": [
     {
       "source": "/(.*)",
