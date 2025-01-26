@@ -1,4 +1,5 @@
 {{- $.Scratch.Add "index" slice -}}
+{{- $.Scratch.Add "sections" (dict) -}}
 {{- $section := $.Site.GetPage .Section }}
 {{- $regex := "/(?:[a-z]{2}/)?[^/]+/([^/]+)/.*$" }}
 
@@ -9,10 +10,31 @@
     {{- $parentSection := (replaceRE $regex "$1" $page.RelPermalink) -}}
     {{- $parentPage := $.Site.GetPage $parentSection -}}
     {{- $parentIcon := $parentPage.Params.icon | default "bookmark" -}}
+    {{- $parentIconSVG := (resources.Get (printf "icons/%s.svg" $parentIcon)) | default "" -}}
     {{- $parentTitle := $parentPage.Title -}}
 
-    {{- $.Scratch.Add "index" (dict "id" $index "url" $page.RelPermalink "summary" $page.Summary "title" $page.Title "parent" $parentSection "parent_title" $parentPage.Title "icon" $parentIcon) -}}
+    {{- $sections := $.Scratch.Get "sections" -}}
+    {{- if not (index $sections $parentSection) -}}
+      {{- $.Scratch.SetInMap "sections" $parentSection (dict 
+        "title" $parentTitle 
+        "icon" $parentIcon 
+        "icon_content" ($parentIconSVG.Content | safeHTML | chomp)
+      ) -}}
+    {{- end -}}
+
+    {{- $.Scratch.Add "index" (dict 
+      "id" $index 
+      "url" $page.RelPermalink 
+      "summary" $page.Summary 
+      "title" $page.Title 
+      "parent" $parentSection 
+    ) -}}
+
     {{- end -}}
   {{- end -}}
 {{- end -}}
-{{- $.Scratch.Get "index" | jsonify -}}
+
+{
+  "documents": {{ .Scratch.Get "index" | jsonify }},
+  "sections": {{ .Scratch.Get "sections" | jsonify }}
+}

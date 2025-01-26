@@ -92,6 +92,16 @@
   }
 }
 
+:root {
+  &.light {
+    --theme-dark: none;
+  }
+
+  &.dark {
+    --theme-light: none;
+  }
+}
+
 .toggle {
   &-version {
     border: 1px solid var(--color-border);
@@ -99,6 +109,16 @@
     border-radius: 0.5rem;
     font-weight: 500;
     color: var(--color-text);
+  }
+
+  &-theme {
+    .i-moon {
+      display: var(--theme-dark, block);
+    }
+
+    .i-sun {
+      display: var(--theme-light, block);
+    }
   }
 }
 
