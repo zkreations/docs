@@ -3,7 +3,7 @@
     <div class="search-form">
       <label class="search-icon">{{ partial "svg" (dict "icon" "search") }}</label>
       <input class="search-input" id="search-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder='{{- i18n "search_in_doc" -}}' maxlength="64"/>
-      <button data-close="" aria-label="close" class="search-close">
+      <button data-close="" aria-label='{{ i18n "close" }}' class="search-close">
         {{ partial "svg" (dict "icon" "xmark") }}
       </button>
     </div>

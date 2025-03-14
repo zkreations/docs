@@ -13,6 +13,9 @@ other = "Oscuro"
 [contents]
 other = "Contenido"
 
+[search]
+other = "Buscar"
+
 [quick_search]
 other = "Busqueda rápida"
 
@@ -36,6 +39,9 @@ other = "Parece que no hemos documentado eso o no existe. ¿Deberiamos agregarlo
 
 [copy]
 other = "Copiar"
+
+[close]
+other = "Cerrar"
 
 [copied]
 other = "Copiado"

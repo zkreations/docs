@@ -13,6 +13,9 @@ other = "Dark"
 [contents]
 other = "Contents"
 
+[search]
+other = "Search"
+
 [quick_search]
 other = "Quick search"
 
@@ -36,6 +39,9 @@ other = "It seems that we have not documented that or it does not exist. Should 
 
 [copy]
 other = "Copy"
+
+[close]
+other = "Close"
 
 [copied]
 other = "Copied"
