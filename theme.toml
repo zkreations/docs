@@ -4,12 +4,12 @@
 name = "docs"
 license = "MIT"
 licenselink = "https://github.com/zkreations/docs/blob/master/LICENSE"
-description = "Documentacion creada utlizando Hugo"
+description = "A Hugo theme for documentation sites"
 homepage = "https://github.com/zkreations/docs/"
 tags = ["documentation", "docs", "multilingual"]
 features = []
-min_version = "0.100.0"
+min_version = "0.138.0"
 
 [author]
-  name = "Abel Daniel"
+  name = "Abel Daniel Moreira Moreno"
   homepage = "https://github.com/danieIabel"
