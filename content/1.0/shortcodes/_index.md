@@ -2,6 +2,6 @@
 title: Shortcodes
 layout: redirect
 icon: brackets-curly
-redirect: "/buttons"
+redirect: "/hint"
 weight: 3
 ---
