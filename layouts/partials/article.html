@@ -5,7 +5,7 @@
       {{- if $.Site.Params.badge_url -}}
         <a href="{{ $.Site.Params.badge_url }}" class="badge badge-big" target="_blank" rel="noreferrer noopener">{{ . }}</a>
       {{- else -}}
-        <span class="badge badge-big">pro</span>
+        <span class="badge badge-big">{{ . }}</span>
       {{- end -}}
     {{ end }}
   </h1>
