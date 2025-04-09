@@ -21,7 +21,7 @@ Hello! This is a markup example of your new documentation. I made this project t
 
 ## Requirements
 
-- Hugo 0.100.0 or higher (extended version)
+- Hugo 0.138.0 or higher (extended version)
 - Git - [Install Git](https://git-scm.com/downloads)
 - Desire to document
 

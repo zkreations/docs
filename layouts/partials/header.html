@@ -34,7 +34,7 @@
         {{ partial "svg" (dict "icon" "moon") }}
       </button>
 
-      {{- if .Site.IsMultiLingual -}}
+      {{- if hugo.IsMultilingual -}}
         <button class="lang-toggle" data-outside="docs-language" aria-label='{{ i18n "languages" }}'>
           {{ partial "svg" (dict "icon" "language") }}
         </button>
@@ -79,7 +79,7 @@
       </div>
     {{- end -}}
     
-    {{- if .Site.IsMultiLingual -}}
+    {{- if hugo.IsMultilingual -}}
       <div class="dropdown" id="docs-language">
         <div class="list fw-500">
           {{ range $.Site.Home.Translations }}

@@ -1,13 +1,12 @@
-title = 'Docs'
+title = 'HuDocs'
 baseURL = 'https://hudocs.com'
 
 copyright = "Created by [zkreations](https://www.zkreations.com)"
-canonifyURLs = true
 enableRobotsTXT = true
 enableGitInfo = true
 
 enableInlineShortcodes = true
-disableKinds = ["taxonomy","taxonomyTerm","term","RSS"]
+disableKinds = ["taxonomy","term","RSS"]
 
 languageCode = 'es'
 defaultContentLanguage = 'es'

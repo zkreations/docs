@@ -2,8 +2,9 @@ const buttons = document.querySelectorAll('[data-outside]')
 
 const ACTIVE_CLASS = 'is-active'
 
-// Función para cerrar un elemento al hacer click fuera de él
-// @param {HTMLElement} button Botón que abre el elemento
+// Function to handle outside click events
+// @param button: Button element with data-outside attribute
+// @returns void
 function outsideClick (button) {
   if (!button) return
 
@@ -34,7 +35,6 @@ function outsideClick (button) {
   }
 }
 
-// Recorrer todos los botones que tengan el atributo data-outside
 buttons.forEach((button) => {
   outsideClick(button)
 })

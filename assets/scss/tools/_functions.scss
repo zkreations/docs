@@ -14,7 +14,7 @@
   @return $string;
 }
 
-// Escape de caracteres en las clases
+// Escape class names
 // @param {String} $string - String to escape
 // @return {String} - Escaped string
 @function escapeClass($string) {

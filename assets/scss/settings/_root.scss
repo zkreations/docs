@@ -20,7 +20,6 @@
 
   --aside-width: 246px;
 
-  // Estilos claros
   --primary: #{$green-500};
 
   --color-link: var(--primary);
@@ -57,7 +56,6 @@
   --warning: #{$yellow-600};
   --warning-bg: #{$yellow-100};
 
-  // Estilos oscuros
   &.dark {
     --primary: #{$green-300};
 

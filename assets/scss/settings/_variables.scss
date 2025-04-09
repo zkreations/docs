@@ -9,14 +9,14 @@ $breakpoints: (
   xl: 1200px,
 ) !default;
 
-// Escape de selectores
+// Escaped class names
 $escaped-class: (
   (".", "\\."),
   (":", "\\:"),
   ("/", "\\/"),
 ) !default;
 
-// Tamaños de fuente
+// Font sizes
 $font-size-values: (
   "1": 2.5rem,
   "2": 2rem,
