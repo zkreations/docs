@@ -1,4 +1,4 @@
-// Generador de utilidades
+// Utility mixins for generating CSS classes
 // @param {String} $property - CSS property
 // @param {List} $values - List of values
 // @param {Boolean} $responsive (false) - Responsive utilities
@@ -13,8 +13,6 @@
   @each $key,
   $value in $values {
     $suffix: str-replace(escapeClass($key), "rem");
-
-    // Si utility es "null", no se agrega al selector
     $class: $utility + $suffix;
 
     @at-root .#{$class} {
@@ -29,7 +27,6 @@
       $prefix: escapeClass($breakpoint + ":");
 
       @media (min-width: $size) {
-
         @each $key,
         $value in $values {
           $suffix: str-replace(escapeClass($key), "rem");
@@ -44,16 +41,16 @@
   }
 }
 
-// Generador de breakpoints
-// @param {String} $direction - min o max
-// @param {String} $key - Key del breakpoint
+// Breakpoint mixin for media queries
+// @param {String} $direction - min or max
+// @param {String} $key - Breakpoint key
 // @return {Mixin}
 @mixin breakpoint($key, $direction: min) {
   $breakpoint: map-get($breakpoints, $key);
   $media: if($direction =="max", ($breakpoint - 1), $breakpoint);
 
   @if not $breakpoint {
-    @warn 'El Breakpoint no esta definido';
+    @warn 'Breakpoint #{$key} not found in map.';
   }
 
   @else {

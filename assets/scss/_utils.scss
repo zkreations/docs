@@ -1,11 +1,9 @@
-// utilidades
 .has-icon {
   display: flex;
   align-items: center;
   column-gap: var(--btn-gap, .75rem);
 }
 
-// Typography
 .lead {
   font-size: 1.25rem;
   font-weight: 300;
@@ -27,7 +25,6 @@
   @include utility(text-align, center left right justify)
 }
 
-// Overflow
 @include utility(overflow, (
   o-auto: auto,
   o-hidden: hidden,
@@ -43,8 +40,6 @@
   oy-hidden: hidden,
 ));
 
-// Display
-
 @include utility(display, (
   block: block,
   inline-block: inline-block,
@@ -55,8 +50,6 @@
   inline-grid: inline-grid,
   none: none,
 ));
-
-// Flex Layout
 
 @include utility(align-items, (
   items-start: flex-start,
@@ -91,8 +84,4 @@
   flex-none: none,
 ));
 
-// Position
-
 @include utility(position, absolute relative fixed sticky);
-
-// fin utilidades
