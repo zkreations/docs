@@ -3,7 +3,6 @@ theme = 'docs'
 baseURL = 'https://example.com/'
 
 copyright = "Created by [zkreations](https://www.zkreations.com)"
-canonifyURLs = true
 enableRobotsTXT = true
 enableGitInfo = false
 
