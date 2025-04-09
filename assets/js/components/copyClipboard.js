@@ -1,4 +1,3 @@
-// Bloques de código
 const blocks = document.querySelectorAll('pre > code')
 
 function addCopyButtons () {
