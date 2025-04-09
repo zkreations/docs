@@ -8,6 +8,6 @@
 <link href='https://cdn.jsdelivr.net/npm/@zkreations/tooltips@4/tooltips.min.css' rel='stylesheet'/>
 
 {{ $styles := resources.Get "scss/main.scss" }}
-{{ $secureCss := $styles | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+{{ $secureCss := $styles | css.Sass | resources.Minify | resources.Fingerprint }}
 
 <link rel="stylesheet" href="{{ $secureCss.RelPermalink }}" integrity="{{ $secureCss.Data.Integrity }}">
