@@ -1,4 +1,4 @@
-# Hugo Docs
+# HuDocs
 
 ![Docs](https://raw.githubusercontent.com/zkreations/docs/main/images/screenshot.png)
 
@@ -18,7 +18,7 @@ I made this project to easily document my own projects, but I thought it would b
 
 ## Requirements
 
-- Hugo 0.100.0 or higher (extended version)
+- Hugo 0.138.0 or higher (extended version)
 - Git - [Install Git](https://git-scm.com/downloads)
 - Desire to document
 
