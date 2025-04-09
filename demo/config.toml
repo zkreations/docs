@@ -8,7 +8,7 @@ enableRobotsTXT = true
 enableGitInfo = false
 
 enableInlineShortcodes = true
-disableKinds = ["taxonomy","taxonomyTerm","term","RSS"]
+disableKinds = ["taxonomy","term","RSS"]
 
 languageCode = 'es'
 defaultContentLanguage = 'es'
