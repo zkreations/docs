@@ -26,7 +26,7 @@
     {{- $.Scratch.Add "index" (dict 
       "id" $index 
       "url" $page.RelPermalink 
-      "summary" $page.Summary 
+      "summary" (truncate 200 $page.Plain)
       "title" $page.Title 
       "parent" $parentSection 
     ) -}}
