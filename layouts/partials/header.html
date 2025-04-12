@@ -1,5 +1,5 @@
-{{- $logo := .Site.Params.main_logo -}}
-{{- $title := .Site.Title | title -}}
+{{- $logo := site.Params.main_logo -}}
+{{- $title := site.Title | title -}}
 
 <div class="container">
   <div class="header-wrapper flex items-center relative">
@@ -14,7 +14,7 @@
           {{- if $logo -}}
             <img class="header-logo-image" src="{{- $logo -}}" alt="{{- $title -}}">
           {{- else -}}
-            {{- with $.Site.Params.main_icon -}}
+            {{- with site.Params.main_icon -}}
               {{ partial "svg" (dict "icon" . "class" "flex-none header-logo-icon" ) }}
             {{- end -}}
             {{- $title -}}
@@ -71,10 +71,10 @@
       </div>
     </div>
 
-    {{- with .Site.Params.versions -}}
+    {{- with site.Params.versions -}}
       <div class="dropdown" id="docs-versions">
         <div class="list fw-500">
-          {{ range $.Site.Params.versions }}
+          {{ range . }}
             <a class="list-link" href="/{{ . }}/">{{ . }}</a>
           {{ end }}
           <a class="list-link" href='{{ "/" | relLangURL }}'>{{ i18n "versions" }}</a>
@@ -85,12 +85,20 @@
     {{- if hugo.IsMultilingual -}}
       <div class="dropdown" id="docs-language">
         <div class="list fw-500">
-          {{ range $.Site.Home.Translations }}
-            <a class="list-link" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+          {{ range site.Languages }}
+            {{ $link := (printf "/%s/" .Lang) }}
+            {{ range $.Page.Translations }}
+              {{ if eq .Language.Lang .Lang }}
+                {{ $link = .Permalink }}
+              {{ end }}
+            {{ end }}
+            <a class="list-link {{ if eq $.Page.Language.Lang .Lang }}is-active events-none{{ end }}"
+              href="{{ $link }}">
+              {{ .LanguageName }}
+            </a>
           {{ end }}
         </div>
       </div>
     {{- end -}}
-    
   </div>
 </div>

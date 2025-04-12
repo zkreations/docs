@@ -85,3 +85,8 @@
 ));
 
 @include utility(position, absolute relative fixed sticky);
+
+@include utility(pointer-events, (
+  events-none: none,
+  events-auto: auto,
+));
