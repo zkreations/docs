@@ -57,3 +57,6 @@ other = "Table of contents toogle"
 
 [main_section_text]
 other = "A list of all hosted documents for all available versions"
+
+[to_close]
+other = "to close"
