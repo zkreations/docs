@@ -6,6 +6,7 @@
 const dataJSON = '{{ $searchData.RelPermalink }}'
 const input = document.getElementById('search-input')
 const results = document.getElementById('search-results')
+const currentVersion = document.getElementById('current-version')
 
 // eslint-disable-next-line no-undef
 const index = FlexSearch.Index({
@@ -15,6 +16,21 @@ const index = FlexSearch.Index({
 
 // Object to store documents and sections
 const documents = {}
+
+function getCurrentVersion () {
+  if (currentVersion) {
+    return currentVersion.innerText.trim()
+  }
+
+  const path = window.location.pathname.split('/')
+  const version = path[1]
+
+  if (version && version.length > 0) {
+    return version
+  }
+
+  return null
+}
 
 // Main function to initialize the search
 async function initSearch () {
@@ -55,8 +71,15 @@ async function search () {
   if (!input.value) return
 
   try {
-    const hits = await index.searchAsync(input.value, 10)
-    const groupedHits = groupResultsByParent(hits)
+    const hits = await index.searchAsync(input.value, 100)
+
+    const currentVersion = getCurrentVersion()
+    const filteredHits = hits.filter(hitId => {
+      const page = documents.pages.find(doc => doc.id === hitId)
+      return page && page.parent.startsWith(`/${currentVersion}/`)
+    })
+
+    const groupedHits = groupResultsByParent(filteredHits)
 
     // Display grouped results
     displayGroupedResults(groupedHits)
@@ -157,7 +180,11 @@ function stringToHTML (str) {
 // Function to initialize search events when the input is focused or when typing
 function initSearchEvents () {
   input.addEventListener('focus', initSearch)
-  input.addEventListener('keyup', search)
+  input.addEventListener('keyup', (event) => {
+    if (event.key.length === 1 || event.key === 'Backspace' || event.key === 'Delete') {
+      search()
+    }
+  })
 }
 
 // Initialize the search events
