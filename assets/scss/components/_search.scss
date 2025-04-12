@@ -52,7 +52,15 @@
     }
   }
 
-  &-version {}
+  &-keyboard {
+    color: var(--color-text);
+
+    code {
+      margin-left: .5rem;
+      background: var(--bg-inset);
+      padding: .25em .5em;
+    }
+  }
 
   &-icon {
     flex: none;

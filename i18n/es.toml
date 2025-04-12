@@ -60,3 +60,6 @@ other = "Una lista de todos los documentos alojados para todas las versiones dis
 
 [to_close]
 other = "para cerrar"
+
+[current_version]
+other = "Versión actual"
