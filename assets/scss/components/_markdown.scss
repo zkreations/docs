@@ -43,17 +43,6 @@
     background-color: var(--bg-mark);
   }
 
-  kbd {
-    color: #fff;
-    background-color: var(--bg-inverse);
-    font-family: var(--font-monospace);
-    padding: .5em;
-    white-space: nowrap;
-    border-radius: .25rem;
-    font-size: .875rem;
-    vertical-align: middle;
-  }
-
   h1, h2, h3, h4, h5, h6 {
     margin-bottom: var(--space-headings);
     font-weight: 500;

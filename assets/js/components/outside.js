@@ -31,8 +31,18 @@ function outsideClick (button) {
   if (close) {
     close.onclick = function () {
       target.classList.remove(ACTIVE_CLASS)
+      button.classList.remove(ACTIVE_CLASS)
     }
   }
+
+  const keydown = (event) => {
+    if (event.key === 'Escape') {
+      button.classList.remove(ACTIVE_CLASS)
+      target.classList.remove(ACTIVE_CLASS)
+    }
+  }
+
+  document.addEventListener('keydown', keydown)
 }
 
 buttons.forEach((button) => {

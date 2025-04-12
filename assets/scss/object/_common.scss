@@ -28,3 +28,13 @@ input {
   }
 }
 
+kbd {
+  color: #fff;
+  background-color: var(--bg-inverse);
+  font-family: var(--font-monospace);
+  padding: .5em .75em;
+  white-space: nowrap;
+  border-radius: .25rem;
+  font-size: .875rem;
+  vertical-align: middle;
+}

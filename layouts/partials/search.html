@@ -1,6 +1,6 @@
 <div class="search" id="search-box">
   <div class="search-content">
-    <div class="search-form">
+    <div class="search-form flex items-center ">
       <label class="search-icon">{{ partial "svg" (dict "icon" "search") }}</label>
       <input class="search-input" id="search-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder='{{- i18n "search_in_doc" -}}' maxlength="64"/>
       <button data-close="" aria-label='{{ i18n "close" }}' class="search-close">
@@ -9,6 +9,12 @@
     </div>
     <div class="search-results">
       <div class="search-list" id="search-results"></div>
+    </div>
+    <div class="search-footer flex items-center">
+      <span class="search-keyboard">
+        <kbd>ESC</kbd>
+        {{ i18n "to_close" }}
+      </span>
     </div>
   </div>
 </div>

@@ -1,13 +1,13 @@
 {{- $.Scratch.Add "index" slice -}}
 {{- $.Scratch.Add "sections" (dict) -}}
 {{- $section := $.Site.GetPage .Section }}
-{{- $regex := "/(?:[a-z]{2}/)?[^/]+/([^/]+)/.*$" }}
+{{- $regex := "^(/[^/]+/[^/]+/)(.*)$" -}}
+{{- $langPrefix := "^/[a-z]{2}/" -}}
 
 {{- range $index, $page := .Site.Pages -}}
-  {{- if or (and (.IsDescendant $section) (and (not .Draft) (not .Params.hidden))) $section.IsHome -}}
-    {{- if .File -}}
-
-    {{- $parentSection := (replaceRE $regex "$1" $page.RelPermalink) -}}
+  {{- if .File -}}
+    {{- $cleanPath := replaceRE $langPrefix "/" $page.RelPermalink -}}
+    {{- $parentSection := (replaceRE $regex "$1" $cleanPath) -}}
     {{- $parentPage := $.Site.GetPage $parentSection -}}
     {{- $parentIcon := $parentPage.Params.icon | default "bookmark" -}}
     {{- $parentIconSVG := (resources.Get (printf "icons/%s.svg" $parentIcon)) | default "" -}}
@@ -26,12 +26,10 @@
     {{- $.Scratch.Add "index" (dict 
       "id" $index 
       "url" $page.RelPermalink 
-      "summary" (truncate 200 $page.Plain)
+      "summary" (truncate 120 $page.Plain)
       "title" $page.Title 
       "parent" $parentSection 
     ) -}}
-
-    {{- end -}}
   {{- end -}}
 {{- end -}}
 
