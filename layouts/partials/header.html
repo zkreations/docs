@@ -75,7 +75,7 @@
       <div class="dropdown" id="docs-versions">
         <div class="list fw-500">
           {{ range . }}
-            <a class="list-link" href="/{{ . }}/">{{ . }}</a>
+            <a class="list-link" href="{{ . | relLangURL }}">{{ . }}</a>
           {{ end }}
           <a class="list-link" href='{{ "/" | relLangURL }}'>{{ i18n "versions" }}</a>
         </div>
