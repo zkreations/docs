@@ -1,6 +1,7 @@
 const TOC = document.querySelector('.toc')
 const TOC_TOGGLE = document.querySelector('.toc-toggle')
 const DOCS = document.querySelector('.article-body')
+const VISIBLE_CLASS = 'is-visible'
 
 function isVisible (elem) {
   const bounding = elem.getBoundingClientRect()
@@ -44,8 +45,8 @@ function onScroll () {
       const tocLink = TOC.querySelector(`a[href="#${section.getAttribute('id')}"]`)
 
       if (tocLink) {
-        tocLinks.forEach((link) => link.classList.remove('is-visible'))
-        tocLink.classList.add('is-visible')
+        tocLinks.forEach((link) => link.classList.remove(VISIBLE_CLASS))
+        tocLink.classList.add(VISIBLE_CLASS)
       }
     }
   })
