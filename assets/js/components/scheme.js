@@ -1,26 +1,30 @@
 const THEME_HANDLE = document.querySelectorAll('.theme-handle > *')
+const ACTIVE_CLASS = 'is-active'
+const LIGHT_MODE = 'light'
+const DARK_MODE = 'dark'
+const SYSTEM_MODE = 'system'
 
 let userPreference = null
 let systemColorSchemeMediaQuery = null
 
 // Saves the user preference in localStorage
-// @param pref: The user preference ('light', 'dark', or 'system')
+// @param pref: The user preference (LIGHT_MODE, DARK_MODE, or SYSTEM_MODE)
 // @returns void
 function saveUserPreference (pref) {
   localStorage.setItem('theme', pref)
 }
 
 // Determines the applied mode
-// @param pref: The user preference for theme ('light', 'dark', or 'system')
-// @returns 'light' or 'dark' based on the preference or system settings
+// @param pref: The user preference for theme (LIGHT_MODE, DARK_MODE, or SYSTEM_MODE)
+// @returns LIGHT_MODE or DARK_MODE based on the preference or system settings
 function getAppliedMode (pref) {
-  if (pref === 'light') return 'light'
-  if (pref === 'dark') return 'dark'
-  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+  if (pref === LIGHT_MODE) return LIGHT_MODE
+  if (pref === DARK_MODE) return DARK_MODE
+  return window.matchMedia('(prefers-color-scheme: light)').matches ? LIGHT_MODE : DARK_MODE
 }
 
 // Sets the applied mode by updating the document's class and meta tag
-// @param mode: The mode to apply ('light' or 'dark')
+// @param mode: The mode to apply (LIGHT_MODE or DARK_MODE)
 // @returns void
 function setAppliedMode (mode) {
   document.documentElement.className = mode
@@ -38,14 +42,14 @@ function handleThemeToggleClick (handle) {
   setAppliedMode(getAppliedMode(newUserPref))
 
   THEME_HANDLE.forEach(el => {
-    el.classList.toggle('is-active', el.dataset.theme === userPreference)
+    el.classList.toggle(ACTIVE_CLASS, el.dataset.theme === userPreference)
   })
 }
 
 // Handles the system color scheme change event
 function handleSystemColorSchemeChange (event) {
-  if (userPreference === 'system') {
-    setAppliedMode(event.matches ? 'dark' : 'light')
+  if (userPreference === SYSTEM_MODE) {
+    setAppliedMode(event.matches ? DARK_MODE : LIGHT_MODE)
   }
 }
 
@@ -58,7 +62,7 @@ function canInitTheme () {
 function initTheme () {
   if (!canInitTheme()) return
 
-  userPreference = localStorage.getItem('theme') || 'system'
+  userPreference = localStorage.getItem('theme') || SYSTEM_MODE
   systemColorSchemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
   systemColorSchemeMediaQuery.addEventListener('change', handleSystemColorSchemeChange)
 
@@ -66,7 +70,7 @@ function initTheme () {
 
   THEME_HANDLE.forEach(handle => {
     handle.addEventListener('click', () => handleThemeToggleClick(handle))
-    handle.classList.toggle('is-active', handle.dataset.theme === userPreference)
+    handle.classList.toggle(ACTIVE_CLASS, handle.dataset.theme === userPreference)
   })
 }
 
