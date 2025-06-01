@@ -2,6 +2,7 @@ const TOC = document.querySelector('.toc')
 const TOC_TOGGLE = document.querySelector('.toc-toggle')
 const DOCS = document.querySelector('.article-body')
 const VISIBLE_CLASS = 'is-visible'
+const ACTIVE_CLASS = 'is-active'
 
 function isVisible (elem) {
   const bounding = elem.getBoundingClientRect()
@@ -14,8 +15,8 @@ function isVisible (elem) {
 if (TOC_TOGGLE && TOC) {
   TOC_TOGGLE.onclick = () => {
     if (isVisible(TOC)) {
-      TOC.classList.toggle('is-active')
-      TOC_TOGGLE.classList.toggle('is-active')
+      TOC.classList.toggle(ACTIVE_CLASS)
+      TOC_TOGGLE.classList.toggle(ACTIVE_CLASS)
     }
   }
 }
