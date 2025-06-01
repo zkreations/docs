@@ -1,6 +1,3 @@
-[searchConfig]
-other = '{ cache: true }'
-
 [system]
 other = "System"
 
@@ -40,11 +37,11 @@ other = "It seems that we have not documented that or it does not exist. Should 
 [copy]
 other = "Copy"
 
+[copied]
+other = "Copied!"
+
 [close]
 other = "Close"
-
-[copied]
-other = "Copied"
 
 [versions]
 other = "Versions"

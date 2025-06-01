@@ -30,8 +30,8 @@
   --color-title: #{$gray-800};
   --color-text: #{$gray-600};
 
-  --color-border: #{$gray-200};
-  --color-border-inset: #{$gray-300};
+  --color-border: #{$gray-300};
+  --color-border-inset: #{$gray-400};
 
   --bg-main:  #{$white};
   --bg-low: #{$gray-50};
@@ -59,37 +59,41 @@
   &.dark {
     --primary: #{$green-300};
 
-    --btn-primary: #{shade-color($green-300, 80%)};
-    --btn-primary-hover: #{shade-color($green-300, 70%)};
+    --btn-primary: hsl(173 20% 20% / 1);
+    --btn-primary-hover: #{$green-100};
 
-    --color-title: #d6e1e9;
-    --color-text: #9ca3af;
+    --shadow-sm: 0px 1px 2px rgb(0 0 0 / 10%);
+    --shadow-md: 0px 3px 6px rgb(0 0 0 / 30%);
+    --shadow-lg: 0px 5px 10px rgb(0 0 0 / 40%);
+
+    --color-title: #{$white};
+    --color-text: #{$gray-400};
     
-    --color-border: #2f2f30;
-    --color-border-inset: #2f2f30;
+    --color-border: #{$gray-700};
+    --color-border-inset: #{$gray-600};
 
     --bg-low: #{$gray-950};
-    --bg-main: #121212;
-    --bg-inset: #1c1c1d;
-    --bg-tenue: rgb(0 0 0 / 50%);
+    --bg-main: #{$gray-900};
+    --bg-inset: #{$gray-800};
+    --bg-tenue: #{rgba($gray-950, .5)};
 
-    --bg-primary: #232325;
-    --bg-header: #232325;
+    --bg-primary: #{$gray-800};
+    --bg-header: #{$gray-800};
 
-    --bg-inverse: #0a0a0a;
-    --bg-darken: #3a3d4c;
+    --bg-inverse: #{$gray-950};
+    --bg-darken: #{$gray-800};
 
-    --info: hsl(202deg 92% 90%);
-    --info-bg: hsl(201deg 52% 20%);
+    --info: #{$blue-100};
+    --info-bg: hsl(217 20% 20% / 1);
   
-    --success: hsl(183deg 89% 90%);
-    --success-bg: hsl(184deg 39% 20%);
+    --success: #{$green-100};
+    --success-bg: hsl(173 20% 20% / 1);
 
-    --danger: hsl(6deg 73% 90%);
-    --danger-bg: hsl(6deg 20% 20%);
+    --danger: #{$red-100};
+    --danger-bg: hsl(357 20% 20% / 1);
   
-    --warning: hsl(39deg 73% 90%);
-    --warning-bg: hsl(38deg 30% 20%);
+    --warning: #{$yellow-100};
+    --warning-bg: hsl(43 20% 20% / 1);
 
   }
 }
