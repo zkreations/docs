@@ -37,11 +37,11 @@ other = "Parece que no hemos documentado eso o no existe. ¿Deberiamos agregarlo
 [copy]
 other = "Copiar"
 
+[copied]
+other = "Copiado!"
+
 [close]
 other = "Cerrar"
-
-[copied]
-other = "Copiado"
 
 [versions]
 other = "Versiones"
