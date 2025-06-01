@@ -1,6 +1,3 @@
-[searchConfig]
-other = '{ cache: true }'
-
 [system]
 other = "System"
 
