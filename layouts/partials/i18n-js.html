@@ -1,8 +1,0 @@
-{{- $i18n := dict
-  "copy" (i18n "copy")
-  "copied" (i18n "copied")
--}}
-
-<script>
-  window.I18N = {{ $i18n | jsonify | safeJS }};
-</script>
