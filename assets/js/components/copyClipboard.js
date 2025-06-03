@@ -1,11 +1,13 @@
 const blocks = document.querySelectorAll('pre > code')
 const article = document.querySelector('article')
 
-const i18n = JSON.parse(article.getAttribute('data-i18n'))
-const COPY_TEXT = i18n.copy
-const COPIED_TEXT = i18n.copied
-
 function addCopyButtons () {
+  if (!article || blocks.length === 0) return
+
+  const i18n = JSON.parse(article.getAttribute('data-i18n'))
+  const COPY_TEXT = i18n.copy
+  const COPIED_TEXT = i18n.copied
+
   if (!navigator || !navigator.clipboard || blocks.length === 0) return
 
   const clipboard = navigator.clipboard
