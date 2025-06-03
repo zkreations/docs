@@ -16,7 +16,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self' https://cdn.jsdelivr.net https://fonts.bunny.net; frame-ancestors 'self'; form-action 'self'; script-src 'self' https://cdn.jsdelivr.net 'sha256-mHDS1bwUA7C11WI2Lg/0s4F/QJC5+BawSdYhX8Icul0=';"
+          "value": "default-src 'self' https://cdn.jsdelivr.net https://fonts.bunny.net; frame-ancestors 'self'; form-action 'self'; script-src 'self' https://cdn.jsdelivr.net 'sha256-nUftcM31JjgTW8RErFLHr33+RZ1mb2OlIlDldRFfhbk=';"
         },
         {
           "key": "X-Content-Type-Options",
