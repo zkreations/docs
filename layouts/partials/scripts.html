@@ -3,7 +3,6 @@
 
 <script src="{{ $jsBundle.RelPermalink }}" integrity="{{ $jsBundle.Data.Integrity }}" defer></script>
 
-
 {{- $searchJSFile := printf "js/%s.search.js" .Language.Lang }}
 {{- $searchJS := resources.Get "js/search.js" | resources.ExecuteAsTemplate $searchJSFile . | resources.Minify | fingerprint }}
 
