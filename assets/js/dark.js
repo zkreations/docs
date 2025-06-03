@@ -1,10 +1,11 @@
-// Obtener el tema actual del almacenamiento local o establecerlo en "light" por defecto
-let currentTheme = localStorage.getItem('current_theme') || 'light'
+// Get the saved theme from localStorage or default to 'light'
+const storedTheme = localStorage.getItem('theme')
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 
-// Si el tema actual es "system", determinar el tema basado en las preferencias del sistema
-if (currentTheme === 'system') {
-  currentTheme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-}
+// Determine the active theme
+const theme = storedTheme === 'system'
+  ? (prefersDark ? 'dark' : 'light')
+  : (storedTheme || 'light')
 
-// Agregar la clase del tema actual al elemento root del documento
-document.documentElement.classList.add(currentTheme)
+// Apply the theme class to the root element
+document.documentElement.classList.add(theme)
