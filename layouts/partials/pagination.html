@@ -1,0 +1,28 @@
+{{- $pages := .CurrentSection.Pages.ByWeight.Reverse -}}
+{{- $prev := $pages.Prev . -}}
+{{- $next := $pages.Next . -}}
+
+<nav aria-label='{{ i18n "pagination_label" }}'>
+  <ul class="footer-pagination-list">
+    {{ with $prev }}
+    <li>
+      <a class="pagelink" href="{{ .RelPermalink }}">
+        <span class="pagelink-content">
+          <span class="pagelink-meta">{{ i18n "pagination_previous" }}</span>
+          <span class="pagelink-title fw-500">{{ .Title }}</span>
+        </span>
+      </a>
+    </li>
+    {{ end }}
+    {{ with $next }}
+    <li class="footer-pagination-next">
+      <a class="pagelink" href="{{ .RelPermalink }}">
+        <span class="pagelink-content">
+          <span class="pagelink-meta">{{ i18n "pagination_next" }}</span>
+          <span class="pagelink-title fw-500">{{ .Title }}</span>
+        </span>
+      </a>
+    </li>
+    {{ end }}
+  </ul>
+</nav>
