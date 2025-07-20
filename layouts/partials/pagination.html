@@ -2,10 +2,10 @@
 {{- $prev := $pages.Prev . -}}
 {{- $next := $pages.Next . -}}
 
-<nav aria-label='{{ i18n "pagination_label" }}'>
-  <ul class="footer-pagination-list">
+<nav class="pagination" aria-label='{{ i18n "pagination_label" }}'>
+  <ul class="pagination-list grid">
     {{ with $prev }}
-    <li>
+    <li class="pagination-item pagination-prev">
       <a class="pagelink" href="{{ .RelPermalink }}">
         <span class="pagelink-content">
           <span class="pagelink-meta">{{ i18n "pagination_previous" }}</span>
@@ -15,7 +15,7 @@
     </li>
     {{ end }}
     {{ with $next }}
-    <li class="footer-pagination-next">
+    <li class="pagination-item pagination-next">
       <a class="pagelink" href="{{ .RelPermalink }}">
         <span class="pagelink-content">
           <span class="pagelink-meta">{{ i18n "pagination_next" }}</span>
