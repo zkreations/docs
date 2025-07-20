@@ -6,21 +6,27 @@
   border: 1px solid var(--color-border);
   transition: border-color .3s, color .3s;
   box-shadow: var(--shadow-sm);
+  line-height: 1.5;
 
   &:hover {
     --color-border: var(--primary);
+    --color-title: var(--primary);
+    --color-meta: var(--primary);
   }
 
   &-icon {
     flex: none;
+    color: var(--color-meta);
   }
 
   &-title {
     color: var(--color-title);
     display: block;
+    transition: color .3s;
   }
 
   &-meta {
-    color: var(--color-text)
+    color: var(--color-meta);
+    transition: color .3s;
   }
 }
