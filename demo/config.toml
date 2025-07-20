@@ -42,4 +42,5 @@ summaryLength = 20
   versions = [ "1.0" ]
   badge_url = "https://www.zkreations.com"
   main_icon = "book-open"
+  pagination = true
   # main_logo = "tu-logo.svg"
