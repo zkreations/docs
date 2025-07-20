@@ -262,7 +262,30 @@
       }
     }
   }
-} 
+
+  &-pagination-list {
+    display: flex;
+    margin-top: 1rem;
+
+    >* {
+      width: 50%;
+
+      +* {
+        margin-left: 1.5rem;
+      }
+    }
+
+    .footer-pagination-next  .pagelink-content {
+      width: 100%;
+      text-align: right;
+
+    }
+
+    :first-child.footer-pagination-next {
+      margin-left: auto;
+    }
+  }
+}
 
 .group {
   display: flex;
