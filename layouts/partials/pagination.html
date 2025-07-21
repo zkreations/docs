@@ -13,6 +13,7 @@
   {{- end -}}
 {{- end -}}
 
+{{- if or $prev $next -}}
 <nav class="pagination" aria-label='{{ i18n "pagination_label" }}'>
   <ul class="pagination-list grid">
     {{ with $prev }}
@@ -43,3 +44,4 @@
     {{ end }}
   </ul>
 </nav>
+{{- end -}}
