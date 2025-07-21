@@ -1,0 +1,11 @@
+{{- $pages := slice -}}
+
+{{- range (where .Section.Pages "Params.hidden" "ne" true) -}}
+  {{- $pages = $pages | append . -}}
+  {{- if .IsSection -}}
+    {{- $subPages := partial "flat-pages" (dict "Section" .) -}}
+    {{- $pages = $pages | append $subPages -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $pages -}}

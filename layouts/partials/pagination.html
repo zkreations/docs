@@ -1,6 +1,17 @@
-{{- $pages := .CurrentSection.Pages.ByWeight.Reverse -}}
-{{- $prev := $pages.Prev . -}}
-{{- $next := $pages.Next . -}}
+{{- $pages := partial "flat-pages" (dict "Section" (.Site.GetPage .Section)) -}}
+{{- $prev := "" -}}
+{{- $next := "" -}}
+
+{{- range $index, $page := $pages -}}
+  {{- if eq $page.RelPermalink $.RelPermalink -}}
+    {{- if gt $index 0 -}}
+      {{- $prev = index $pages (sub $index 1) -}}
+    {{- end -}}
+    {{- if lt $index (sub (len $pages) 1) -}}
+      {{- $next = index $pages (add $index 1) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
 
 <nav class="pagination" aria-label='{{ i18n "pagination_label" }}'>
   <ul class="pagination-list grid">
