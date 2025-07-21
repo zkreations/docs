@@ -60,3 +60,12 @@ other = "para cerrar"
 
 [current_version]
 other = "Versión actual"
+
+[pagination_label]
+other = "Paginación"
+
+[pagination_previous]
+other = "Página anterior"
+
+[pagination_next]
+other = "Página siguiente"

@@ -4,13 +4,13 @@
 {{- $name := .Get "name" -}}
 
 <a class="pagelink" href="{{ $href | relLangURL}}"{{ if hasPrefix  $href  "http" }} target="_blank" rel="noreferrer nofollow noopener"{{ end }}>
-  <div class="pagelink-icon i-md">
+  <span class="pagelink-icon i-md">
     {{- partial "svg" (dict "icon" $icon) -}}
-  </div>
-  <div class="pagelink-content">
-    <div class="pagelink-title fw-500">{{ $title }}</div>
+  </span>
+  <span class="pagelink-content">
+    <span class="pagelink-title fw-500">{{ $title }}</span>
     {{- with $name -}}
-      <span class="pagelink-meta">{{ . }}</span>
+      <span class="pagelink-meta fs-7">{{ . }}</span>
     {{- end -}}
-  </div>
+  </span>
 </a>

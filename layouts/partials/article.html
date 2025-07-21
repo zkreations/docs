@@ -20,3 +20,6 @@
 <div class="article-body markdown">
   {{- .Content -}}
 </div>
+{{- if .Site.Params.pagination -}}
+  {{- partial "pagination" . -}}
+{{- end -}}

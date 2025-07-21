@@ -29,6 +29,7 @@
 
   --color-title: #{$gray-800};
   --color-text: #{$gray-600};
+  --color-meta: #{$gray-400};
 
   --color-border: #{$gray-300};
   --color-border-inset: #{$gray-400};
@@ -67,7 +68,8 @@
     --shadow-lg: 0px 5px 10px rgb(0 0 0 / 40%);
 
     --color-title: #{$white};
-    --color-text: #{$gray-400};
+    --color-text: #{$gray-300};
+    --color-meta: #{$gray-400};
     
     --color-border: #{$gray-700};
     --color-border-inset: #{$gray-600};

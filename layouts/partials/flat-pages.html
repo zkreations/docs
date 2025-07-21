@@ -1,0 +1,16 @@
+{{- $pages := slice -}}
+
+{{- range (where .Section.Pages "Params.hidden" "ne" true) -}}
+  {{- $isRedirect := or (isset .Params "redirect") (eq .Params.layout "redirect") -}}
+
+  {{- if not $isRedirect -}}
+    {{- $pages = $pages | append . -}}
+  {{- end -}}
+
+  {{- if .IsSection -}}
+    {{- $subPages := partial "flat-pages" (dict "Section" .) -}}
+    {{- $pages = $pages | append $subPages -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $pages -}}
