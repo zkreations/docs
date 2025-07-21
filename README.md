@@ -9,7 +9,6 @@ I made this project to easily document my own projects, but I thought it would b
 - Optimized compatible with [Core Web Vitals](https://pagespeed.web.dev/report?url=https://hudocs.com)
 - A+ Security Level on [Mozilla Observatory](https://observatory.mozilla.org/analyze/hudocs.com)
 - Support for multiple languages
-- No dependencies
 - Advanced automated searcher
 - Light and dark theme
 - Shortcodes for alerts, notes, tables, etc.
